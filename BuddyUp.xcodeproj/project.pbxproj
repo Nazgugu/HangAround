@@ -39,6 +39,7 @@
 		AE9CC8101876124F00A6E61D /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8091876124F00A6E61D /* NSInvocation+Copy.m */; };
 		AE9CC8111876124F00A6E61D /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC80B1876124F00A6E61D /* UIImage+BlurredFrame.m */; };
 		AE9CC8121876124F00A6E61D /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */; };
+		AE9CC8181876279900A6E61D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8171876279900A6E61D /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		AE9CC80B1876124F00A6E61D /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
 		AE9CC80C1876124F00A6E61D /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		AE9CC8161876279900A6E61D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		AE9CC8171876279900A6E61D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 		AE8C4EAE1876039B00F23661 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AE9CC815187626BA00A6E61D /* TabViewControllers */,
 				AE8C4EA51876039300F23661 /* LoginViewController.h */,
 				AE8C4EA61876039300F23661 /* LoginViewController.m */,
 				AE8C4EA71876039300F23661 /* WelcomeViewController.h */,
@@ -246,6 +250,15 @@
 				AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */,
 			);
 			name = "Animation&Appearence";
+			sourceTree = "<group>";
+		};
+		AE9CC815187626BA00A6E61D /* TabViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE9CC8161876279900A6E61D /* HomeViewController.h */,
+				AE9CC8171876279900A6E61D /* HomeViewController.m */,
+			);
+			name = TabViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +370,7 @@
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
 				AE9CC8101876124F00A6E61D /* NSInvocation+Copy.m in Sources */,
+				AE9CC8181876279900A6E61D /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -132,8 +132,7 @@
          }
          else
          {
-             UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Grats" message:@"SignUp Success" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-             [success show];
+             [self performSegueWithIdentifier:@"SignupSucceed" sender:sender];
          }
      }
      ];

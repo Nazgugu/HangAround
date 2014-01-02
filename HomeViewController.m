@@ -1,19 +1,19 @@
 //
-//  WelcomeViewController.m
+//  HomeViewController.m
 //  BuddyUp
 //
 //  Created by Liu Zhe on 14-1-2.
 //  Copyright (c) 2014年 CDFLS. All rights reserved.
 //
 
-#import "WelcomeViewController.h"
+#import "HomeViewController.h"
 #import <Parse/Parse.h>
 
-@interface WelcomeViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation WelcomeViewController
+@implementation HomeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,16 +30,12 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self checkStatus];
-}
-
-- (void)checkStatus
-{
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if ([PFUser currentUser]) {
-        [self performSegueWithIdentifier:@"AlreadyLoggedIn" sender:self];
+        self.Username.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil), [[PFUser currentUser] username]];
+    } else {
+        self.Username.text = NSLocalizedString(@"Not logged in", nil);
     }
 }
 
@@ -60,4 +56,10 @@
 }
 */
 
+- (IBAction)Logout:(id)sender {
+    [PFUser logOut];
+    //[self dismissViewControllerAnimated:YES completion:NULL];
+    [self performSegueWithIdentifier:@"LogoutUser" sender:self];
+
+}
 @end

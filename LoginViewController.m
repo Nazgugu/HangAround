@@ -121,8 +121,7 @@
      {
          if (user)
          {
-             UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Login Success" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-             [success show];
+             [self performSegueWithIdentifier:@"LoginSucceed" sender:sender];
          }
          else
          {
