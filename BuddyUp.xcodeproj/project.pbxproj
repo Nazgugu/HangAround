@@ -34,6 +34,11 @@
 		AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBD1876044100F23661 /* Security.framework */; };
 		AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBF1876049400F23661 /* StoreKit.framework */; };
 		AE8C4EC418760D2300F23661 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */; };
+		AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8051876124F00A6E61D /* BlurryModalSegue.m */; };
+		AE9CC80F1876124F00A6E61D /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8071876124F00A6E61D /* MZAppearance.m */; };
+		AE9CC8101876124F00A6E61D /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8091876124F00A6E61D /* NSInvocation+Copy.m */; };
+		AE9CC8111876124F00A6E61D /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC80B1876124F00A6E61D /* UIImage+BlurredFrame.m */; };
+		AE9CC8121876124F00A6E61D /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,16 @@
 		AE8C4EBD1876044100F23661 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE8C4EBF1876049400F23661 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		AE9CC8041876124F00A6E61D /* BlurryModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurryModalSegue.h; sourceTree = "<group>"; };
+		AE9CC8051876124F00A6E61D /* BlurryModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurryModalSegue.m; sourceTree = "<group>"; };
+		AE9CC8061876124F00A6E61D /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
+		AE9CC8071876124F00A6E61D /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
+		AE9CC8081876124F00A6E61D /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
+		AE9CC8091876124F00A6E61D /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Copy.m"; sourceTree = "<group>"; };
+		AE9CC80A1876124F00A6E61D /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
+		AE9CC80B1876124F00A6E61D /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
+		AE9CC80C1876124F00A6E61D /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +136,7 @@
 		AE8C4E64187602DB00F23661 = {
 			isa = PBXGroup;
 			children = (
+				AE9CC8031876123200A6E61D /* Animation&Appearence */,
 				AE8C4EAE1876039B00F23661 /* Controller */,
 				AE8C4E76187602DB00F23661 /* BuddyUp */,
 				AE8C4E95187602DB00F23661 /* BuddyUpTests */,
@@ -213,6 +229,23 @@
 				AE8C4EAA1876039300F23661 /* SignUpViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		AE9CC8031876123200A6E61D /* Animation&Appearence */ = {
+			isa = PBXGroup;
+			children = (
+				AE9CC8041876124F00A6E61D /* BlurryModalSegue.h */,
+				AE9CC8051876124F00A6E61D /* BlurryModalSegue.m */,
+				AE9CC8061876124F00A6E61D /* MZAppearance.h */,
+				AE9CC8071876124F00A6E61D /* MZAppearance.m */,
+				AE9CC8081876124F00A6E61D /* NSInvocation+Copy.h */,
+				AE9CC8091876124F00A6E61D /* NSInvocation+Copy.m */,
+				AE9CC80A1876124F00A6E61D /* UIImage+BlurredFrame.h */,
+				AE9CC80B1876124F00A6E61D /* UIImage+BlurredFrame.m */,
+				AE9CC80C1876124F00A6E61D /* UIImage+ImageEffects.h */,
+				AE9CC80D1876124F00A6E61D /* UIImage+ImageEffects.m */,
+			);
+			name = "Animation&Appearence";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,12 +346,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9CC80F1876124F00A6E61D /* MZAppearance.m in Sources */,
 				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
 				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
 				AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */,
+				AE9CC8121876124F00A6E61D /* UIImage+ImageEffects.m in Sources */,
+				AE9CC8111876124F00A6E61D /* UIImage+BlurredFrame.m in Sources */,
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
+				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
+				AE9CC8101876124F00A6E61D /* NSInvocation+Copy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
