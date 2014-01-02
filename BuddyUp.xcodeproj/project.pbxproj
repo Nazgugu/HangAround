@@ -33,6 +33,7 @@
 		AE8C4EBC1876043B00F23661 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */; };
 		AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBD1876044100F23661 /* Security.framework */; };
 		AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBF1876049400F23661 /* StoreKit.framework */; };
+		AE8C4EC418760D2300F23661 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AE8C4EBD1876044100F23661 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE8C4EBF1876049400F23661 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */,
+				AE8C4EC418760D2300F23661 /* libz.1.1.3.dylib in Frameworks */,
 				AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */,
 				AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */,
 				AE8C4EBC1876043B00F23661 /* MobileCoreServices.framework in Frameworks */,
@@ -94,7 +98,6 @@
 				AE8C4EB81876042800F23661 /* CFNetwork.framework in Frameworks */,
 				AE8C4EB61876042300F23661 /* AudioToolbox.framework in Frameworks */,
 				AE8C4EB41876041700F23661 /* QuartzCore.framework in Frameworks */,
-				AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */,
 				AE8C4EB0187603F700F23661 /* SystemConfiguration.framework in Frameworks */,
 				AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */,
 				AE8C4E75187602DB00F23661 /* UIKit.framework in Frameworks */,
@@ -138,6 +141,7 @@
 		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */,
 				AE8C4EBF1876049400F23661 /* StoreKit.framework */,
 				AE8C4EBD1876044100F23661 /* Security.framework */,
 				AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */,
@@ -531,6 +535,7 @@
 				AE8C4EA1187602DB00F23661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE8C4EA2187602DB00F23661 /* Build configuration list for PBXNativeTarget "BuddyUpTests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +544,7 @@
 				AE8C4EA4187602DB00F23661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

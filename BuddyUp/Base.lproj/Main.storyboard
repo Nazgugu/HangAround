@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="h5E-o7-kII"/>
                         <viewControllerLayoutGuide type="bottom" id="3Ci-us-n7b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eAA-f6-hJP">
+                    <view key="view" contentMode="scaleToFill" id="eAA-f6-hJP" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -20,19 +20,28 @@
                                 <rect key="frame" x="53" y="113" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3h3-2k-OJd" id="agA-Vo-l8H"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7T-Ek-RVV">
                                 <rect key="frame" x="53" y="177" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3h3-2k-OJd" id="UzE-oC-B0n"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zr9-1X-Vjk">
                                 <rect key="frame" x="53" y="242" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3h3-2k-OJd" id="GE1-gl-mwx"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kM-TN-kUV">
                                 <rect key="frame" x="133" y="298" width="55" height="30"/>
@@ -40,6 +49,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="SignUp:" destination="3h3-2k-OJd" eventType="touchUpInside" id="upz-tC-ToG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlK-Px-P2s">
                                 <rect key="frame" x="53" y="340" width="41" height="30"/>
@@ -53,7 +65,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="doneEditing:" destination="3h3-2k-OJd" eventType="valueChanged" id="Xck-0U-yGR"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="Email" destination="Zr9-1X-Vjk" id="XYq-6y-9zh"/>
+                        <outlet property="Password" destination="K7T-Ek-RVV" id="a4O-06-qU5"/>
+                        <outlet property="Username" destination="3vg-Kz-eau" id="cBs-Xn-qzw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hl2-ch-Rg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +87,7 @@
                         <viewControllerLayoutGuide type="top" id="kNU-bJ-1yt"/>
                         <viewControllerLayoutGuide type="bottom" id="FhD-cS-ywl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DQO-lf-X0i">
+                    <view key="view" contentMode="scaleToFill" id="DQO-lf-X0i" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -75,13 +95,19 @@
                                 <rect key="frame" x="50" y="176" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="n53-Ur-QMq" id="3vh-3a-fjk"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rLa-fV-vHg">
                                 <rect key="frame" x="50" y="241" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="n53-Ur-QMq" id="tec-cd-KFw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYW-O2-el5">
                                 <rect key="frame" x="137" y="308" width="43" height="30"/>
@@ -89,6 +115,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="Login:" destination="n53-Ur-QMq" eventType="touchUpInside" id="lbf-uT-hTy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxi-3A-Zdp">
                                 <rect key="frame" x="50" y="376" width="41" height="30"/>
@@ -102,7 +131,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="doneEdit:" destination="n53-Ur-QMq" eventType="touchDown" id="PfG-vD-NVM"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="PassWord" destination="rLa-fV-vHg" id="Rnn-95-9FW"/>
+                        <outlet property="UserName" destination="bVY-3D-Ydo" id="QJo-eL-wOo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18L-k9-rZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,6 +198,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cMU-Xt-hUD"/>
+        <segue reference="Btr-U3-OVT"/>
     </inferredMetricsTieBreakers>
 </document>

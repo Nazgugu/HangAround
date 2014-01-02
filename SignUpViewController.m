@@ -7,12 +7,17 @@
 //
 
 #import "SignUpViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import <Parse/Parse.h>
 
 @interface SignUpViewController ()
 
 @end
 
 @implementation SignUpViewController
+@synthesize Username;
+@synthesize Password;
+@synthesize Email;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,9 +28,70 @@
     return self;
 }
 
+- (void)keyboardDidShowWithNotification:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         CGPoint adjust;
+                         switch (self.interfaceOrientation) {
+                             case UIInterfaceOrientationLandscapeLeft:
+                                 adjust = CGPointMake(-110, 0);
+                                 break;
+                             case UIInterfaceOrientationLandscapeRight:
+                                 adjust = CGPointMake(110, 0);
+                                 break;
+                             default:
+                                 adjust = CGPointMake(0, -60);
+                                 break;
+                         }
+                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
+                         [self.view setCenter:newCenter];
+                         
+                     }
+                     completion:nil];
+}
+
+- (void)keyboardDidHideWithNotification:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         CGPoint adjust;
+                         switch (self.interfaceOrientation) {
+                             case UIInterfaceOrientationLandscapeLeft:
+                                 adjust = CGPointMake(110, 0);
+                                 break;
+                             case UIInterfaceOrientationLandscapeRight:
+                                 adjust = CGPointMake(-110, 0);
+                                 break;
+                             default:
+                                 adjust = CGPointMake(0, 60);
+                                 break;
+                         }
+                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
+                         [self.view setCenter:newCenter];
+                     }
+                     completion:nil];
+    
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowWithNotification:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideWithNotification:) name:UIKeyboardDidHideNotification object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -33,6 +99,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)doneEditing:(id)sender {
+    [self.view endEditing:YES];
 }
 
 /*
@@ -46,4 +115,28 @@
 }
 */
 
+- (IBAction)SignUp:(id)sender {
+    PFUser *newUser = [PFUser user];
+    newUser.username = Username.text;
+    newUser.password = Password.text;
+    newUser.email = Email.text;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if (error)
+         {
+             NSString *errorString = [[error userInfo] objectForKey:@"error"];
+             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:self cancelButtonTitle:@"Try Again"
+                                                        otherButtonTitles: nil];
+             [errorAlert show];
+         }
+         else
+         {
+             UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Grats" message:@"SignUp Success" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+             [success show];
+         }
+     }
+     ];
+
+}
 @end
