@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
+		AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E72187602DB00F23661 /* CoreGraphics.framework */; };
+		AE8C4E75187602DB00F23661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E74187602DB00F23661 /* UIKit.framework */; };
+		AE8C4E7B187602DB00F23661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE8C4E79187602DB00F23661 /* InfoPlist.strings */; };
+		AE8C4E7D187602DB00F23661 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4E7C187602DB00F23661 /* main.m */; };
+		AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4E80187602DB00F23661 /* CDAppDelegate.m */; };
+		AE8C4E84187602DB00F23661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8C4E82187602DB00F23661 /* Main.storyboard */; };
+		AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4E86187602DB00F23661 /* CDViewController.m */; };
+		AE8C4E89187602DB00F23661 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8C4E88187602DB00F23661 /* Images.xcassets */; };
+		AE8C4E90187602DB00F23661 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E8F187602DB00F23661 /* XCTest.framework */; };
+		AE8C4E91187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
+		AE8C4E92187602DB00F23661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E74187602DB00F23661 /* UIKit.framework */; };
+		AE8C4E9A187602DB00F23661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE8C4E98187602DB00F23661 /* InfoPlist.strings */; };
+		AE8C4E9C187602DB00F23661 /* BuddyUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4E9B187602DB00F23661 /* BuddyUpTests.m */; };
+		AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4EA61876039300F23661 /* LoginViewController.m */; };
+		AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4EA81876039300F23661 /* WelcomeViewController.m */; };
+		AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C4EAA1876039300F23661 /* SignUpViewController.m */; };
+		AE8C4EB0187603F700F23661 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EAF187603F700F23661 /* SystemConfiguration.framework */; };
+		AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EB11876041100F23661 /* Parse.framework */; };
+		AE8C4EB41876041700F23661 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EB31876041700F23661 /* QuartzCore.framework */; };
+		AE8C4EB61876042300F23661 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EB51876042300F23661 /* AudioToolbox.framework */; };
+		AE8C4EB81876042800F23661 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EB71876042800F23661 /* CFNetwork.framework */; };
+		AE8C4EBA1876043100F23661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EB91876043100F23661 /* CoreLocation.framework */; };
+		AE8C4EBC1876043B00F23661 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */; };
+		AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBD1876044100F23661 /* Security.framework */; };
+		AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4EBF1876049400F23661 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE8C4E93187602DB00F23661 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE8C4E65187602DB00F23661 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE8C4E6C187602DB00F23661;
+			remoteInfo = BuddyUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE8C4E6D187602DB00F23661 /* BuddyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8C4E70187602DB00F23661 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE8C4E72187602DB00F23661 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AE8C4E74187602DB00F23661 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AE8C4E78187602DB00F23661 /* BuddyUp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BuddyUp-Info.plist"; sourceTree = "<group>"; };
+		AE8C4E7A187602DB00F23661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AE8C4E7C187602DB00F23661 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AE8C4E7E187602DB00F23661 /* BuddyUp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuddyUp-Prefix.pch"; sourceTree = "<group>"; };
+		AE8C4E7F187602DB00F23661 /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
+		AE8C4E80187602DB00F23661 /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
+		AE8C4E83187602DB00F23661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE8C4E85187602DB00F23661 /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
+		AE8C4E86187602DB00F23661 /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
+		AE8C4E88187602DB00F23661 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AE8C4E8E187602DB00F23661 /* BuddyUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuddyUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8C4E8F187602DB00F23661 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AE8C4E97187602DB00F23661 /* BuddyUpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BuddyUpTests-Info.plist"; sourceTree = "<group>"; };
+		AE8C4E99187602DB00F23661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AE8C4E9B187602DB00F23661 /* BuddyUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuddyUpTests.m; sourceTree = "<group>"; };
+		AE8C4EA51876039300F23661 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		AE8C4EA61876039300F23661 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AE8C4EA71876039300F23661 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		AE8C4EA81876039300F23661 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		AE8C4EA91876039300F23661 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		AE8C4EAA1876039300F23661 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		AE8C4EAF187603F700F23661 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AE8C4EB11876041100F23661 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Parse.framework; sourceTree = "<group>"; };
+		AE8C4EB31876041700F23661 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE8C4EB51876042300F23661 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AE8C4EB71876042800F23661 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AE8C4EB91876043100F23661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AE8C4EBD1876044100F23661 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AE8C4EBF1876049400F23661 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE8C4E6A187602DB00F23661 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */,
+				AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */,
+				AE8C4EBC1876043B00F23661 /* MobileCoreServices.framework in Frameworks */,
+				AE8C4EBA1876043100F23661 /* CoreLocation.framework in Frameworks */,
+				AE8C4EB81876042800F23661 /* CFNetwork.framework in Frameworks */,
+				AE8C4EB61876042300F23661 /* AudioToolbox.framework in Frameworks */,
+				AE8C4EB41876041700F23661 /* QuartzCore.framework in Frameworks */,
+				AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */,
+				AE8C4EB0187603F700F23661 /* SystemConfiguration.framework in Frameworks */,
+				AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */,
+				AE8C4E75187602DB00F23661 /* UIKit.framework in Frameworks */,
+				AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8C4E8B187602DB00F23661 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4E90187602DB00F23661 /* XCTest.framework in Frameworks */,
+				AE8C4E92187602DB00F23661 /* UIKit.framework in Frameworks */,
+				AE8C4E91187602DB00F23661 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE8C4E64187602DB00F23661 = {
+			isa = PBXGroup;
+			children = (
+				AE8C4EAE1876039B00F23661 /* Controller */,
+				AE8C4E76187602DB00F23661 /* BuddyUp */,
+				AE8C4E95187602DB00F23661 /* BuddyUpTests */,
+				AE8C4E6F187602DB00F23661 /* Frameworks */,
+				AE8C4E6E187602DB00F23661 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE8C4E6E187602DB00F23661 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4E6D187602DB00F23661 /* BuddyUp.app */,
+				AE8C4E8E187602DB00F23661 /* BuddyUpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4EBF1876049400F23661 /* StoreKit.framework */,
+				AE8C4EBD1876044100F23661 /* Security.framework */,
+				AE8C4EBB1876043B00F23661 /* MobileCoreServices.framework */,
+				AE8C4EB91876043100F23661 /* CoreLocation.framework */,
+				AE8C4EB71876042800F23661 /* CFNetwork.framework */,
+				AE8C4EB51876042300F23661 /* AudioToolbox.framework */,
+				AE8C4EB31876041700F23661 /* QuartzCore.framework */,
+				AE8C4EB11876041100F23661 /* Parse.framework */,
+				AE8C4EAF187603F700F23661 /* SystemConfiguration.framework */,
+				AE8C4E70187602DB00F23661 /* Foundation.framework */,
+				AE8C4E72187602DB00F23661 /* CoreGraphics.framework */,
+				AE8C4E74187602DB00F23661 /* UIKit.framework */,
+				AE8C4E8F187602DB00F23661 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE8C4E76187602DB00F23661 /* BuddyUp */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4E7F187602DB00F23661 /* CDAppDelegate.h */,
+				AE8C4E80187602DB00F23661 /* CDAppDelegate.m */,
+				AE8C4E82187602DB00F23661 /* Main.storyboard */,
+				AE8C4E85187602DB00F23661 /* CDViewController.h */,
+				AE8C4E86187602DB00F23661 /* CDViewController.m */,
+				AE8C4E88187602DB00F23661 /* Images.xcassets */,
+				AE8C4E77187602DB00F23661 /* Supporting Files */,
+			);
+			path = BuddyUp;
+			sourceTree = "<group>";
+		};
+		AE8C4E77187602DB00F23661 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4E78187602DB00F23661 /* BuddyUp-Info.plist */,
+				AE8C4E79187602DB00F23661 /* InfoPlist.strings */,
+				AE8C4E7C187602DB00F23661 /* main.m */,
+				AE8C4E7E187602DB00F23661 /* BuddyUp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE8C4E95187602DB00F23661 /* BuddyUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4E9B187602DB00F23661 /* BuddyUpTests.m */,
+				AE8C4E96187602DB00F23661 /* Supporting Files */,
+			);
+			path = BuddyUpTests;
+			sourceTree = "<group>";
+		};
+		AE8C4E96187602DB00F23661 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4E97187602DB00F23661 /* BuddyUpTests-Info.plist */,
+				AE8C4E98187602DB00F23661 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE8C4EAE1876039B00F23661 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C4EA51876039300F23661 /* LoginViewController.h */,
+				AE8C4EA61876039300F23661 /* LoginViewController.m */,
+				AE8C4EA71876039300F23661 /* WelcomeViewController.h */,
+				AE8C4EA81876039300F23661 /* WelcomeViewController.m */,
+				AE8C4EA91876039300F23661 /* SignUpViewController.h */,
+				AE8C4EAA1876039300F23661 /* SignUpViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE8C4E6C187602DB00F23661 /* BuddyUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8C4E9F187602DB00F23661 /* Build configuration list for PBXNativeTarget "BuddyUp" */;
+			buildPhases = (
+				AE8C4E69187602DB00F23661 /* Sources */,
+				AE8C4E6A187602DB00F23661 /* Frameworks */,
+				AE8C4E6B187602DB00F23661 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BuddyUp;
+			productName = BuddyUp;
+			productReference = AE8C4E6D187602DB00F23661 /* BuddyUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE8C4E8D187602DB00F23661 /* BuddyUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8C4EA2187602DB00F23661 /* Build configuration list for PBXNativeTarget "BuddyUpTests" */;
+			buildPhases = (
+				AE8C4E8A187602DB00F23661 /* Sources */,
+				AE8C4E8B187602DB00F23661 /* Frameworks */,
+				AE8C4E8C187602DB00F23661 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8C4E94187602DB00F23661 /* PBXTargetDependency */,
+			);
+			name = BuddyUpTests;
+			productName = BuddyUpTests;
+			productReference = AE8C4E8E187602DB00F23661 /* BuddyUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE8C4E65187602DB00F23661 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = CDFLS;
+				TargetAttributes = {
+					AE8C4E8D187602DB00F23661 = {
+						TestTargetID = AE8C4E6C187602DB00F23661;
+					};
+				};
+			};
+			buildConfigurationList = AE8C4E68187602DB00F23661 /* Build configuration list for PBXProject "BuddyUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE8C4E64187602DB00F23661;
+			productRefGroup = AE8C4E6E187602DB00F23661 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE8C4E6C187602DB00F23661 /* BuddyUp */,
+				AE8C4E8D187602DB00F23661 /* BuddyUpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE8C4E6B187602DB00F23661 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4E89187602DB00F23661 /* Images.xcassets in Resources */,
+				AE8C4E7B187602DB00F23661 /* InfoPlist.strings in Resources */,
+				AE8C4E84187602DB00F23661 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8C4E8C187602DB00F23661 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4E9A187602DB00F23661 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE8C4E69187602DB00F23661 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
+				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
+				AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */,
+				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
+				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
+				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8C4E8A187602DB00F23661 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8C4E9C187602DB00F23661 /* BuddyUpTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE8C4E94187602DB00F23661 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE8C4E6C187602DB00F23661 /* BuddyUp */;
+			targetProxy = AE8C4E93187602DB00F23661 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE8C4E79187602DB00F23661 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE8C4E7A187602DB00F23661 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AE8C4E82187602DB00F23661 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE8C4E83187602DB00F23661 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE8C4E98187602DB00F23661 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE8C4E99187602DB00F23661 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE8C4E9D187602DB00F23661 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AE8C4E9E187602DB00F23661 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE8C4EA0187602DB00F23661 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/liuzhe/Dropbox/ComputerScience/iOS/WinterProj,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";
+				INFOPLIST_FILE = "BuddyUp/BuddyUp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AE8C4EA1187602DB00F23661 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/liuzhe/Dropbox/ComputerScience/iOS/WinterProj,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";
+				INFOPLIST_FILE = "BuddyUp/BuddyUp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AE8C4EA3187602DB00F23661 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuddyUp.app/BuddyUp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BuddyUpTests/BuddyUpTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AE8C4EA4187602DB00F23661 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BuddyUp.app/BuddyUp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";
+				INFOPLIST_FILE = "BuddyUpTests/BuddyUpTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE8C4E68187602DB00F23661 /* Build configuration list for PBXProject "BuddyUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8C4E9D187602DB00F23661 /* Debug */,
+				AE8C4E9E187602DB00F23661 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE8C4E9F187602DB00F23661 /* Build configuration list for PBXNativeTarget "BuddyUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8C4EA0187602DB00F23661 /* Debug */,
+				AE8C4EA1187602DB00F23661 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE8C4EA2187602DB00F23661 /* Build configuration list for PBXNativeTarget "BuddyUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8C4EA3187602DB00F23661 /* Debug */,
+				AE8C4EA4187602DB00F23661 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE8C4E65187602DB00F23661 /* Project object */;
+}
