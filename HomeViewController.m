@@ -8,9 +8,10 @@
 
 #import "HomeViewController.h"
 #import <Parse/Parse.h>
+#import "TGRImageViewController.h"
+#import "TGRImageZoomAnimationController.h"
 
-@interface HomeViewController ()
-
+@interface HomeViewController ()<UIViewControllerTransitioningDelegate>
 @end
 
 @implementation HomeViewController
@@ -32,6 +33,8 @@
     [self.UserImage setPathWidth:2.5];
     [self.UserImage setPathType:GBPathImageViewTypeCircle];
     [self.UserImage draw];
+    self.UserImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.UserImage.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
     // Do any additional setup after loading the view.
 }
 
@@ -69,6 +72,30 @@
 
 }
 
+#pragma transitions
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    if ([presented isKindOfClass:TGRImageViewController.class]) {
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:self.UserImage];
+    }
+    return nil;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    if ([dismissed isKindOfClass:TGRImageViewController.class]) {
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:self.UserImage];
+    }
+    return nil;
+}
+
+- (void)showImage {
+    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:self.UserImage.image];
+    viewController.transitioningDelegate = self;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+
 #pragma actionsheets
 - (IBAction)showAvatar:(UITapGestureRecognizer*)sender {
     UIActionSheet *selectImage = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"View Image", @"Select Image", nil];
@@ -82,7 +109,7 @@
     {
         if (buttonIndex == 0)
         {
-            
+            [self showImage];
         }
         if (buttonIndex == 1)
         {

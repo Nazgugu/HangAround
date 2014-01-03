@@ -172,8 +172,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd" customClass="GBPathImageView">
-                                <rect key="frame" x="88" y="96" width="145" height="145"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_profile_4" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd" customClass="GBPathImageView">
+                                <rect key="frame" x="100" y="100" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -346,6 +346,9 @@
             <point key="canvasLocation" x="-474" y="-72"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default_profile_4" width="500" height="500"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
