@@ -43,6 +43,7 @@
 		AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC81D1876480E00A6E61D /* MHTextField.m */; };
 		AE9CC8251876665300A6E61D /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8221876665300A6E61D /* TPKeyboardAvoidingScrollView.m */; };
 		AE9CC8261876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8241876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		AE9CC83318775A7700A6E61D /* GBPathImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC83218775A7700A6E61D /* GBPathImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		AE9CC8221876665300A6E61D /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		AE9CC8231876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		AE9CC8241876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		AE9CC83118775A7700A6E61D /* GBPathImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPathImageView.h; sourceTree = "<group>"; };
+		AE9CC83218775A7700A6E61D /* GBPathImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPathImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,7 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence */ = {
 			isa = PBXGroup;
 			children = (
+				AE9CC82818769EB600A6E61D /* Avatar */,
 				AE9CC8271876665800A6E61D /* KeyBoard */,
 				AE9CC81F187665D800A6E61D /* TextField */,
 				AE9CC820187665E800A6E61D /* BlurSeg */,
@@ -298,6 +302,15 @@
 				AE9CC8241876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			name = KeyBoard;
+			sourceTree = "<group>";
+		};
+		AE9CC82818769EB600A6E61D /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				AE9CC83118775A7700A6E61D /* GBPathImageView.h */,
+				AE9CC83218775A7700A6E61D /* GBPathImageView.m */,
+			);
+			name = Avatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9CC83318775A7700A6E61D /* GBPathImageView.m in Sources */,
 				AE9CC80F1876124F00A6E61D /* MZAppearance.m in Sources */,
 				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
 				AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */,

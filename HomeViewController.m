@@ -27,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.UserImage setPathColor:[UIColor whiteColor]];
+    [self.UserImage setBorderColor:[UIColor blackColor]];
+    [self.UserImage setPathWidth:2.5];
+    [self.UserImage setPathType:GBPathImageViewTypeCircle];
+    [self.UserImage draw];
     // Do any additional setup after loading the view.
 }
 
@@ -63,4 +68,35 @@
     [self performSegueWithIdentifier:@"LogoutUser" sender:self];
 
 }
+
+#pragma actionsheets
+- (IBAction)showAvatar:(UITapGestureRecognizer*)sender {
+    UIActionSheet *selectImage = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"View Image", @"Select Image", nil];
+    [selectImage showInView:self.view];
+        selectImage.tag = 1;
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1)
+    {
+        if (buttonIndex == 0)
+        {
+            
+        }
+        if (buttonIndex == 1)
+        {
+            UIActionSheet *chooseFrom = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Use Camara", @"Choose from library", nil];
+            chooseFrom.tag = 2;
+            [chooseFrom showInView:self.view];
+        }
+    }
+    if (actionSheet.tag == 2)
+    {
+        
+    }
+}
+
+
+
 @end

@@ -167,24 +167,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-Ea-mWe">
-                                <rect key="frame" x="49" y="335" width="210" height="46"/>
+                                <rect key="frame" x="55" y="281" width="210" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd">
-                                <rect key="frame" x="40" y="96" width="240" height="215"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd" customClass="GBPathImageView">
+                                <rect key="frame" x="88" y="96" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="U4U-z8-M7d" appends="YES" id="g2y-Uj-ZgP"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eE1-FD-nzS">
-                                <rect key="frame" x="137" y="398" width="46" height="25"/>
+                                <rect key="frame" x="137" y="382" width="46" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-BF-TKd">
-                                <rect key="frame" x="137" y="446" width="49" height="30"/>
+                                <rect key="frame" x="136" y="436" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -199,10 +203,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="tVf-tn-eOr"/>
                     <connections>
+                        <outlet property="UserImage" destination="kAi-pd-UMd" id="rj5-WY-icg"/>
                         <outlet property="Username" destination="DLO-Ea-mWe" id="t4p-ke-ACa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNm-jh-HPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="U4U-z8-M7d">
+                    <connections>
+                        <action selector="showAvatar:" destination="TZm-LT-cwh" id="X51-gi-FHr"/>
+                        <outlet property="delegate" destination="TZm-LT-cwh" id="Han-Mn-1ej"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1150" y="-1078"/>
         </scene>
