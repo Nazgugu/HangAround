@@ -34,7 +34,8 @@
     [super viewWillAppear:animated];
     if ([PFUser currentUser]) {
         self.Username.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil), [[PFUser currentUser] username]];
-    } else {
+    }
+    else {
         self.Username.text = NSLocalizedString(@"Not logged in", nil);
     }
 }

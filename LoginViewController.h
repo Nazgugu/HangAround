@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface LoginViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *UserName;
 @property (weak, nonatomic) IBOutlet UITextField *PassWord;
 - (IBAction)Login:(id)sender;
+@property (strong, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+
 
 @end

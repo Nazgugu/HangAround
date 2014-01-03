@@ -17,6 +17,7 @@
 @implementation LoginViewController
 @synthesize UserName;
 @synthesize PassWord;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,67 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowWithNotification:) name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideWithNotification:) name:UIKeyboardDidHideNotification object:nil];
-
+    [self.scrollView contentSizeToFit];
     // Do any additional setup after loading the view.
 }
 
-- (void)keyboardDidShowWithNotification:(NSNotification *)aNotification
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         CGPoint adjust;
-                         switch (self.interfaceOrientation) {
-                             case UIInterfaceOrientationLandscapeLeft:
-                                 adjust = CGPointMake(-110, 0);
-                                 break;
-                             case UIInterfaceOrientationLandscapeRight:
-                                 adjust = CGPointMake(110, 0);
-                                 break;
-                             default:
-                                 adjust = CGPointMake(0, -60);
-                                 break;
-                         }
-                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
-                         [self.view setCenter:newCenter];
-                         
-                     }
-                     completion:nil];
+    return YES;
 }
 
-- (void)keyboardDidHideWithNotification:(NSNotification *)aNotification
-{
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         CGPoint adjust;
-                         switch (self.interfaceOrientation) {
-                             case UIInterfaceOrientationLandscapeLeft:
-                                 adjust = CGPointMake(110, 0);
-                                 break;
-                             case UIInterfaceOrientationLandscapeRight:
-                                 adjust = CGPointMake(-110, 0);
-                                 break;
-                             default:
-                                 adjust = CGPointMake(0, 60);
-                                 break;
-                         }
-                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
-                         [self.view setCenter:newCenter];
-                     }
-                     completion:nil];
-    
-    
-}
-
-- (IBAction)doneEdit:(id)sender {
-    [self.view endEditing:YES];
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
