@@ -172,7 +172,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_profile_4" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd" customClass="GBPathImageView">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_profile_4" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-pd-UMd" customClass="APAvatarImageView">
                                 <rect key="frame" x="100" y="100" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -199,7 +199,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.87058830261230469" green="0.9490196704864502" blue="0.7882353663444519" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="tVf-tn-eOr"/>
                     <connections>

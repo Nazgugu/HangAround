@@ -12,9 +12,13 @@
 #import "TGRImageZoomAnimationController.h"
 
 @interface HomeViewController ()<UIViewControllerTransitioningDelegate>
+{
+    BOOL isFullScreen;
+}
 @end
 
 @implementation HomeViewController
+@synthesize UserImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,13 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.UserImage setPathColor:[UIColor whiteColor]];
-    [self.UserImage setBorderColor:[UIColor blackColor]];
-    [self.UserImage setPathWidth:2.5];
-    [self.UserImage setPathType:GBPathImageViewTypeCircle];
-    [self.UserImage draw];
-    self.UserImage.contentMode = UIViewContentModeScaleAspectFill;
-    self.UserImage.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
+    UserImage.borderColor = [UIColor whiteColor];
+    UserImage.borderWidth = 3.0;
+    UserImage.contentMode = UIViewContentModeScaleAspectFill;
+    UserImage.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
     // Do any additional setup after loading the view.
 }
 
@@ -52,6 +53,42 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 保存图片至沙盒
+- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
+{
+    
+    NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
+    // 获取沙盒目录
+    
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
+    
+    // 将图片写入文件
+    
+    [imageData writeToFile:fullPath atomically:NO];
+}
+
+#pragma mark - image picker delegte
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	[picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [self saveImage:image withName:@"currentImage.png"];
+    
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    
+    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+    
+    isFullScreen = NO;
+    [UserImage setImage:savedImage];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+	[self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 /*
@@ -76,20 +113,20 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     if ([presented isKindOfClass:TGRImageViewController.class]) {
-        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:self.UserImage];
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:UserImage];
     }
     return nil;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     if ([dismissed isKindOfClass:TGRImageViewController.class]) {
-        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:self.UserImage];
+        return [[TGRImageZoomAnimationController alloc] initWithReferenceImageView:UserImage];
     }
     return nil;
 }
 
 - (void)showImage {
-    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:self.UserImage.image];
+    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:UserImage.image];
     viewController.transitioningDelegate = self;
     
     [self presentViewController:viewController animated:YES completion:nil];
@@ -97,6 +134,7 @@
 
 
 #pragma actionsheets
+
 - (IBAction)showAvatar:(UITapGestureRecognizer*)sender {
     UIActionSheet *selectImage = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"View Image", @"Select Image", nil];
     [selectImage showInView:self.view];
@@ -113,14 +151,50 @@
         }
         if (buttonIndex == 1)
         {
-            UIActionSheet *chooseFrom = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Use Camara", @"Choose from library", nil];
+            UIActionSheet *chooseFrom;
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            {
+                chooseFrom = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Use Camara", @"Choose from library", nil];
+            }
+            else
+            {
+                chooseFrom = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Choose from library", nil];
+            }
             chooseFrom.tag = 2;
             [chooseFrom showInView:self.view];
         }
     }
     if (actionSheet.tag == 2)
     {
+        NSUInteger sourceType = 0;
         
+        // check if support camara
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            
+            switch (buttonIndex) {
+                case 2:
+                    // cancel
+                    return;
+                case 0:
+                    // camara
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    break;
+                    
+                case 1:
+                    // library
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    break;
+            }
+        }
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        
+        imagePickerController.delegate = self;
+        
+        imagePickerController.allowsEditing = YES;
+        
+        imagePickerController.sourceType = sourceType;
+        
+        [self presentViewController:imagePickerController animated:YES completion:^{}];
     }
 }
 

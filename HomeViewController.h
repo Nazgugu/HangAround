@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GBPathImageView.h"
+#import "APAvatarImageView.h"
 
-@interface HomeViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface HomeViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *Username;
-@property (strong, nonatomic) IBOutlet GBPathImageView *UserImage;
+@property (strong, nonatomic) IBOutlet APAvatarImageView *UserImage;
 
 - (IBAction)Logout:(id)sender;
 @end
