@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APAvatarImageView.h"
+#import <dispatch/dispatch.h>
 
 @interface HomeViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *Username;

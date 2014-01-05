@@ -48,6 +48,9 @@
 		AE9CC8401877641D00A6E61D /* TGRImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC83B1877641D00A6E61D /* TGRImageZoomAnimationController.m */; };
 		AE9CC8411877641D00A6E61D /* UIImage+AspectFit.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC83D1877641D00A6E61D /* UIImage+AspectFit.m */; };
 		AE9CC8441877D12000A6E61D /* APAvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8431877D12000A6E61D /* APAvatarImageView.m */; };
+		AE9CC8491878BABE00A6E61D /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8481878BABE00A6E61D /* UIImage+Resize.m */; };
+		AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84B1878BC4A00A6E61D /* UIImage+RoundedCorner.m */; };
+		AE9CC84F1878BC7000A6E61D /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,12 @@
 		AE9CC83D1877641D00A6E61D /* UIImage+AspectFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectFit.m"; sourceTree = "<group>"; };
 		AE9CC8421877D12000A6E61D /* APAvatarImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAvatarImageView.h; sourceTree = "<group>"; };
 		AE9CC8431877D12000A6E61D /* APAvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAvatarImageView.m; sourceTree = "<group>"; };
+		AE9CC8471878BABE00A6E61D /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		AE9CC8481878BABE00A6E61D /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		AE9CC84A1878BC4A00A6E61D /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		AE9CC84B1878BC4A00A6E61D /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		AE9CC84D1878BC7000A6E61D /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +270,12 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence */ = {
 			isa = PBXGroup;
 			children = (
+				AE9CC84D1878BC7000A6E61D /* UIImage+Alpha.h */,
+				AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */,
+				AE9CC84A1878BC4A00A6E61D /* UIImage+RoundedCorner.h */,
+				AE9CC84B1878BC4A00A6E61D /* UIImage+RoundedCorner.m */,
+				AE9CC8471878BABE00A6E61D /* UIImage+Resize.h */,
+				AE9CC8481878BABE00A6E61D /* UIImage+Resize.m */,
 				AE9CC82818769EB600A6E61D /* Avatar */,
 				AE9CC8271876665800A6E61D /* KeyBoard */,
 				AE9CC81F187665D800A6E61D /* TextField */,
@@ -447,13 +462,16 @@
 				AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */,
 				AE9CC8121876124F00A6E61D /* UIImage+ImageEffects.m in Sources */,
 				AE9CC8111876124F00A6E61D /* UIImage+BlurredFrame.m in Sources */,
+				AE9CC8491878BABE00A6E61D /* UIImage+Resize.m in Sources */,
 				AE9CC8251876665300A6E61D /* TPKeyboardAvoidingScrollView.m in Sources */,
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
+				AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */,
 				AE9CC8441877D12000A6E61D /* APAvatarImageView.m in Sources */,
+				AE9CC84F1878BC7000A6E61D /* UIImage+Alpha.m in Sources */,
 				AE9CC8101876124F00A6E61D /* NSInvocation+Copy.m in Sources */,
 				AE9CC8181876279900A6E61D /* HomeViewController.m in Sources */,
 				AE9CC8411877641D00A6E61D /* UIImage+AspectFit.m in Sources */,

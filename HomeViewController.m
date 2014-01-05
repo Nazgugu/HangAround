@@ -10,10 +10,12 @@
 #import <Parse/Parse.h>
 #import "TGRImageViewController.h"
 #import "TGRImageZoomAnimationController.h"
+#import "UIImage+Resize.h"
 
 @interface HomeViewController ()<UIViewControllerTransitioningDelegate>
 {
     BOOL isFullScreen;
+    dispatch_queue_t queue;
 }
 @end
 
@@ -42,10 +44,42 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if ([PFUser currentUser]) {
-        self.Username.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil), [[PFUser currentUser] username]];
+        self.Username.text = [NSString stringWithFormat:NSLocalizedString(@"Welcome, %@", nil), [[PFUser currentUser] username]];
     }
     else {
         self.Username.text = NSLocalizedString(@"Not logged in", nil);
+    }
+    if (UserImage.image == nil)
+    {
+        NSLog(@"User image is not set!");
+        PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
+        PFUser *user = [PFUser currentUser];
+        [query whereKey:@"user" equalTo:user];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+         {
+             if (!error)
+             {
+                 //find succeed
+                 NSLog(@"succeed");
+                 if ([objects count] > 0)
+                 {
+                     PFObject *imageObject = [objects objectAtIndex:0];
+                     PFFile *imageFile = [imageObject objectForKey:@"imageFile"];
+                     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+                      {
+                          UIImage *image = [UIImage imageWithData:data];
+                          [UserImage setImage:image];
+                      }];
+                 }
+                 else
+                 {
+                     NSLog(@"Error : %@ %@", error, [error userInfo]);
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                     [UserImage setImage:[UIImage imageNamed:@"default_profile_4"]];
+                     });
+                 }
+             }
+         }];
     }
 }
 
@@ -58,8 +92,7 @@
 #pragma mark - 保存图片至沙盒
 - (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
 {
-    
-    NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(currentImage, 1.0);
     // 获取沙盒目录
     
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
@@ -70,25 +103,126 @@
 }
 
 #pragma mark - image picker delegte
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	[picker dismissViewControllerAnimated:YES completion:^{}];
+	
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGFloat height = 480.0f;
+        CGFloat width = (height / image.size.height) * image.size.width;
+        UIImage *newImage = [image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationDefault];
+        [self saveImage:newImage withName:@"currentImage.png"];
     
-    [self saveImage:image withName:@"currentImage.png"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
     
+            //UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+    
+            isFullScreen = NO;
+            [UserImage setImage:newImage];
+        });
+    
+    });
+    queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [self uploadImage];
+    });
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)uploadImage
+{
+    //get image from sandbox
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-    
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-    
-    isFullScreen = NO;
-    [UserImage setImage:savedImage];
+    NSData *imageData = UIImagePNGRepresentation(savedImage);
+    //upload to database
+    NSString *userImageFileName = [NSString stringWithFormat:@"%@_UserProfile.jpeg",[[PFUser currentUser] username]];
+    PFFile *imageFile = [PFFile fileWithName:userImageFileName data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (!error)
+        {
+            PFUser *user = [PFUser currentUser];
+            PFQuery *photoQuery = [PFQuery queryWithClassName:@"UserPhoto"];
+            [photoQuery whereKey:@"user" equalTo:user];
+            [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+               if (!error)
+               {
+                   if ([objects count] > 0)
+                   {
+                       //if exist photo update it
+                       PFObject *tempObj = [objects lastObject];
+                       [photoQuery getObjectInBackgroundWithId:tempObj.objectId block:^(PFObject *object, NSError *error){
+                           if (!error){
+                               object[@"imageFile"] = imageFile;
+                               [object saveInBackground];
+                               NSLog(@"Can you see me?");
+                           }
+                       }];
+                   }
+                   else
+                   {
+                       //if not then upload the first one
+                       PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+                       [userPhoto setObject:imageFile forKey:@"imageFile"];
+                       [userPhoto setObject:user forKey:@"user"];
+                       [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                          if (!error)
+                          {
+                              //upload succeed
+                          }
+                           else
+                           {
+                               NSLog(@"uploading error: %@, %@", error, [error userInfo]);
+                           }
+                       }];
+                   }
+               }
+                else
+                {
+                    NSLog(@": %@ %@", error, [error userInfo]);
+                }
+            }];
+            
+        }
+        else
+        {
+            NSLog(@"so damn: %@ %@", error, [error userInfo]);
+        }
+        
+    }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-	[self dismissViewControllerAnimated:YES completion:^{}];
+	[self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (void)choosePhotoFromCamera
+{
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    controller.allowsEditing = YES;
+    controller.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
+    controller.delegate = self;
+    [self presentViewController: controller animated: YES completion: nil];
+
+}
+
+- (void)choosePhotoFromLibrary
+{
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+        controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        controller.allowsEditing = YES;
+        controller.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypePhotoLibrary];
+        controller.delegate = self;
+        [self presentViewController: controller animated: YES completion: nil];
+    }
+
 }
 
 /*
@@ -166,8 +300,6 @@
     }
     if (actionSheet.tag == 2)
     {
-        NSUInteger sourceType = 0;
-        
         // check if support camara
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             
@@ -177,24 +309,15 @@
                     return;
                 case 0:
                     // camara
-                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self choosePhotoFromCamera];
                     break;
                     
                 case 1:
                     // library
-                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    [self choosePhotoFromLibrary];
                     break;
             }
         }
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        
-        imagePickerController.delegate = self;
-        
-        imagePickerController.allowsEditing = YES;
-        
-        imagePickerController.sourceType = sourceType;
-        
-        [self presentViewController:imagePickerController animated:YES completion:^{}];
     }
 }
 
