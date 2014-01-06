@@ -17,6 +17,7 @@
     [Parse setApplicationId:@"iSCrIQQchgxHTZKUKyC7Y4HWgGq8a7O2L9M6wuRA"
                   clientKey:@"Q2FroVo6ZZy7SBli9zu4Ecbu8lOGyDo07vYjgyiS"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //Enabling keyboard manager(Use this line to enable managing distance between keyboard & textField/textView).
     return YES;
 }
 							
