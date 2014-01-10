@@ -16,4 +16,5 @@ static NSUInteger const kPAWWallPostMaximumCharacterCount = 60;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
 @property (strong, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *keyBoardAvoidingScrollView;
 @property (strong, nonatomic) IBOutlet UITextField *dateSelection;
+@property (strong, nonatomic) IBOutlet UITextField *locationText;
 @end

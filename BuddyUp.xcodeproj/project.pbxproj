@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE11777F187D3AD3003CE39E /* CLLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */; };
+		AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE117780187D3E30003CE39E /* MapKit.framework */; };
+		AE117784187DFED9003CE39E /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE117783187DFED9003CE39E /* MMLocationManager.m */; };
 		AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */; };
+		AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */; };
 		AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
 		AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E72187602DB00F23661 /* CoreGraphics.framework */; };
 		AE8C4E75187602DB00F23661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E74187602DB00F23661 /* UIKit.framework */; };
@@ -66,8 +70,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE11777D187D3AD3003CE39E /* CLLocation+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Utils.h"; sourceTree = "<group>"; };
+		AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Utils.m"; sourceTree = "<group>"; };
+		AE117780187D3E30003CE39E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AE117782187DFED9003CE39E /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
+		AE117783187DFED9003CE39E /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
 		AE1E9AE0187B3FFD0021E629 /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
 		AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
+		AE1E9AE4187BD09D0021E629 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		AE8C4E6D187602DB00F23661 /* BuddyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8C4E70187602DB00F23661 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE8C4E72187602DB00F23661 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,12 +156,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */,
+				AE8C4EBA1876043100F23661 /* CoreLocation.framework in Frameworks */,
 				AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */,
 				AE8C4EC418760D2300F23661 /* libz.1.1.3.dylib in Frameworks */,
 				AE8C4EC01876049400F23661 /* StoreKit.framework in Frameworks */,
 				AE8C4EBE1876044100F23661 /* Security.framework in Frameworks */,
 				AE8C4EBC1876043B00F23661 /* MobileCoreServices.framework in Frameworks */,
-				AE8C4EBA1876043100F23661 /* CoreLocation.framework in Frameworks */,
 				AE8C4EB81876042800F23661 /* CFNetwork.framework in Frameworks */,
 				AE8C4EB61876042300F23661 /* AudioToolbox.framework in Frameworks */,
 				AE8C4EB41876041700F23661 /* QuartzCore.framework in Frameworks */,
@@ -174,6 +186,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE117779187D3463003CE39E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AE117782187DFED9003CE39E /* MMLocationManager.h */,
+				AE117783187DFED9003CE39E /* MMLocationManager.m */,
+				AE11777D187D3AD3003CE39E /* CLLocation+Utils.h */,
+				AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		AE1E9ADF187B3FF10021E629 /* DayPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,10 +206,19 @@
 			name = DayPicker;
 			sourceTree = "<group>";
 		};
+		AE1E9AE3187BD0360021E629 /* Segmented Control */ = {
+			isa = PBXGroup;
+			children = (
+				AE1E9AE4187BD09D0021E629 /* HMSegmentedControl.h */,
+				AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */,
+			);
+			name = "Segmented Control";
+			sourceTree = "<group>";
+		};
 		AE8C4E64187602DB00F23661 = {
 			isa = PBXGroup;
 			children = (
-				AE9CC8031876123200A6E61D /* Animation&Appearence */,
+				AE9CC8031876123200A6E61D /* Animation&Appearence&Function */,
 				AE8C4EAE1876039B00F23661 /* Controller */,
 				AE8C4E76187602DB00F23661 /* BuddyUp */,
 				AE8C4E95187602DB00F23661 /* BuddyUpTests */,
@@ -207,6 +239,7 @@
 		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE117780187D3E30003CE39E /* MapKit.framework */,
 				AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */,
 				AE8C4EBF1876049400F23661 /* StoreKit.framework */,
 				AE8C4EBD1876044100F23661 /* Security.framework */,
@@ -282,9 +315,11 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		AE9CC8031876123200A6E61D /* Animation&Appearence */ = {
+		AE9CC8031876123200A6E61D /* Animation&Appearence&Function */ = {
 			isa = PBXGroup;
 			children = (
+				AE117779187D3463003CE39E /* Location */,
+				AE1E9AE3187BD0360021E629 /* Segmented Control */,
 				AE1E9ADF187B3FF10021E629 /* DayPicker */,
 				AE9CC8531879419E00A6E61D /* Image */,
 				AE9CC82818769EB600A6E61D /* Avatar */,
@@ -292,7 +327,7 @@
 				AE9CC81F187665D800A6E61D /* TextField */,
 				AE9CC820187665E800A6E61D /* BlurSeg */,
 			);
-			name = "Animation&Appearence";
+			name = "Animation&Appearence&Function";
 			sourceTree = "<group>";
 		};
 		AE9CC815187626BA00A6E61D /* TabViewControllers */ = {
@@ -483,6 +518,8 @@
 				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
 				AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */,
 				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
+				AE117784187DFED9003CE39E /* MMLocationManager.m in Sources */,
+				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
 				AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */,
 				AE9CC8521879389500A6E61D /* PostViewController.m in Sources */,
 				AE9CC8401877641D00A6E61D /* TGRImageZoomAnimationController.m in Sources */,
@@ -495,6 +532,7 @@
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
+				AE11777F187D3AD3003CE39E /* CLLocation+Utils.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
 				AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */,
