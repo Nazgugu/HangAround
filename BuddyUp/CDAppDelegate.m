@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 
 @implementation CDAppDelegate
-@synthesize currentLocation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -49,15 +48,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-- (void)setCurrentLocation:(CLLocation *)aCurrentLocation {
-	currentLocation = aCurrentLocation;
-    
-	// Notify the app of the location change:
-	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:currentLocation forKey:kPAWLocationKey];
-	dispatch_async(dispatch_get_main_queue(), ^{
-		[[NSNotificationCenter defaultCenter] postNotificationName:kPAWLocationChangeNotification object:nil userInfo:userInfo];
-	});
-}
 
 @end

@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE11777F187D3AD3003CE39E /* CLLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */; };
 		AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE117780187D3E30003CE39E /* MapKit.framework */; };
-		AE117784187DFED9003CE39E /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE117783187DFED9003CE39E /* MMLocationManager.m */; };
 		AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */; };
 		AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */; };
 		AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
@@ -70,11 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE11777D187D3AD3003CE39E /* CLLocation+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Utils.h"; sourceTree = "<group>"; };
-		AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Utils.m"; sourceTree = "<group>"; };
 		AE117780187D3E30003CE39E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AE117782187DFED9003CE39E /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
-		AE117783187DFED9003CE39E /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
 		AE1E9AE0187B3FFD0021E629 /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
 		AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		AE1E9AE4187BD09D0021E629 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
@@ -186,17 +180,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE117779187D3463003CE39E /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				AE117782187DFED9003CE39E /* MMLocationManager.h */,
-				AE117783187DFED9003CE39E /* MMLocationManager.m */,
-				AE11777D187D3AD3003CE39E /* CLLocation+Utils.h */,
-				AE11777E187D3AD3003CE39E /* CLLocation+Utils.m */,
-			);
-			name = Location;
-			sourceTree = "<group>";
-		};
 		AE1E9ADF187B3FF10021E629 /* DayPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,7 +301,6 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence&Function */ = {
 			isa = PBXGroup;
 			children = (
-				AE117779187D3463003CE39E /* Location */,
 				AE1E9AE3187BD0360021E629 /* Segmented Control */,
 				AE1E9ADF187B3FF10021E629 /* DayPicker */,
 				AE9CC8531879419E00A6E61D /* Image */,
@@ -518,7 +500,6 @@
 				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
 				AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */,
 				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
-				AE117784187DFED9003CE39E /* MMLocationManager.m in Sources */,
 				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
 				AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */,
 				AE9CC8521879389500A6E61D /* PostViewController.m in Sources */,
@@ -532,7 +513,6 @@
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
-				AE11777F187D3AD3003CE39E /* CLLocation+Utils.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,
 				AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */,

@@ -6,23 +6,45 @@
 //  Copyright (c) 2014年 CDFLS. All rights reserved.
 //
 
+//static double const kPAWFeetToMeters = 0.3048; // this is an exact value.
+//static double const kPAWFeetToMiles = 5280.0; // this is an exact value.
+//static double const kPAWWallPostMaximumSearchDistance = 100.0;
+//static double const kPAWMetersInAKilometer = 1000.0; // this is an exact value.
+
+// Parse API key constants:
+static NSString * const kPAWParsePostsClassKey = @"Posts";
+static NSString * const kPAWParseUserKey = @"user";
+static NSString * const kPAWParseUsernameKey = @"username";
+static NSString * const kPAWParseTextKey = @"text";
+static NSString * const kPAWParseLocationKey = @"location";
+static NSString * const kPawParseTimeKey = @"time";
+static NSString * const kPawParseTypeKey = @"category";
+
+// NSNotification userInfo keys:
+static NSString * const kPAWFilterDistanceKey = @"filterDistance";
+static NSString * const kPAWLocationKey = @"location";
+
+//Notification Name
+static NSString * const kPAWLocationChangeNotification = @"kPAWLocationChangeNotification";
+
 #import "PostViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "HMSegmentedControl.h"
-#import "CLLocation+Utils.h"
-#import "MMLocationManager.h"
-#import "CDAppDelegate.h"
 #import <Parse/Parse.h>
 
-@interface PostViewController ()<RMDateSelectionViewControllerDelegate>
+@interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
     dispatch_queue_t queue;
+    CLLocationManager *locationManager;
 }
 - (void)updateCharacterCount:(UITextView *)aTextView;
 - (BOOL)checkCharacterCount:(UITextView *)aTextView;
 - (void)textInputChanged:(NSNotification *)note;
 @property (strong, nonatomic) CLLocation *location;
-@property (strong,nonatomic) RMDateSelectionViewController *datePickController;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longtitude;
+@property (strong, nonatomic) HMSegmentedControl *typeSelection;
+@property (strong, nonatomic) RMDateSelectionViewController *datePickController;
 @end
 
 @implementation PostViewController
@@ -31,6 +53,7 @@
 @synthesize dateSelection;
 @synthesize keyBoardAvoidingScrollView;
 @synthesize locationText;
+@synthesize typeSelection;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,7 +104,7 @@
 	//[textView becomeFirstResponder];
     
     //segmented control for  type selection
-    HMSegmentedControl *typeSelection = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Entertainment", @"Sports", @"Shopping", @"Meal"]];
+    typeSelection = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Entertainment", @"Sports", @"Shopping", @"Meal"]];
     [typeSelection setSelectionIndicatorHeight:4.0f];
     [typeSelection setBackgroundColor:[UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1]];
     [typeSelection setTextColor:[UIColor whiteColor]];
@@ -103,12 +126,20 @@
     [clearButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
     locationText.rightViewMode = UITextFieldViewModeNever;
     [locationText setRightView:clearButton];
-}
+    }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.distanceFilter = 50.0f;
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    locationManager.delegate = self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [locationManager stopUpdatingLocation];
+}
 
 #pragma segmentedControl
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
@@ -240,6 +271,7 @@
     [locationText resignFirstResponder];
     locationText.text = @"";
     locationText.rightViewMode = UITextFieldViewModeNever;
+    [locationManager stopUpdatingLocation];
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField
@@ -251,12 +283,30 @@
 
 - (void)updateLocation
 {
-        [[MMLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCoordinate)
-         {
-             NSLog(@"%f %f",locationCoordinate.latitude,locationCoordinate.longitude);
-             locationText.text = [NSString stringWithFormat:@"%f %f",locationCoordinate.latitude,locationCoordinate.longitude];
-        }];
+    [locationManager startUpdatingLocation];
+    locationText.placeholder = @"Updating Location";
+}
 
+#pragma locationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@",error);
+    locationText.text = @"Fail to get location";
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"Location: %@",[locations lastObject]);
+    CLLocation *currentLocation = [locations lastObject];
+    CLLocationCoordinate2D currentCoordinate = currentLocation.coordinate;
+    if (currentLocation)
+    {
+        locationText.text = [NSString stringWithFormat:@"Lat: %.3f, Lon: %.3f",currentCoordinate.latitude,currentCoordinate.longitude];
+        self.latitude = currentCoordinate.latitude;
+        self.longtitude = currentCoordinate.longitude;
+    }
+    [locationManager stopUpdatingLocation];
 }
 
 #pragma postToServer
@@ -272,12 +322,31 @@
     }
     
     //prepare data
-    CDAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    CLLocationCoordinate2D currentCoordinate = appDelegate.currentLocation.coordinate;
-    PFGeoPoint *currentPoint = [PFGeoPoint geoPointWithLatitude:currentCoordinate.latitude longitude:currentCoordinate.longitude];
+    
     PFUser *user = [PFUser currentUser];
-    
-    
+    PFGeoPoint *currentPoint = [PFGeoPoint geoPointWithLatitude:self.latitude longitude:self.longtitude];
+    //wrap up all the posting components into a postObject and send this async to Parse
+    PFObject *postObject = [PFObject objectWithClassName:kPAWParsePostsClassKey];
+    [postObject setObject:textView.text forKey:kPAWParseTextKey];
+    [postObject setObject:[NSString stringWithFormat:@"%ld", (long)typeSelection.selectedSegmentIndex] forKey:kPawParseTypeKey];
+    [postObject setObject:dateSelection.text forKey:kPawParseTimeKey];
+    [postObject setObject:user forKey:kPAWParseUserKey];
+    [postObject setObject:currentPoint forKey:kPAWParseLocationKey];
+    [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+       if (error)
+       {
+           NSLog(@"Could't save!");
+           NSLog(@"%@",error);
+           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[error userInfo] objectForKey:@"error"] message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+           [alertView show];
+           return;
+       }
+        if (succeeded)
+        {
+            NSLog(@"Successfully saved");
+            NSLog(@"%@",postObject);
+        }
+    }];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
