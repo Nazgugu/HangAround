@@ -231,6 +231,7 @@
         [textField resignFirstResponder];
         // Show you custom picker here....
         [self openDateSelectionController];
+        [textView resignFirstResponder];
         keyBoardAvoidingScrollView.contentOffset = CGPointMake(0, 60);
         return NO;
     }
