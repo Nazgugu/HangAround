@@ -10,6 +10,11 @@
 		AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE117780187D3E30003CE39E /* MapKit.framework */; };
 		AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */; };
 		AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */; };
+		AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */; };
+		AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B6188225D900D5A9C8 /* CDPosts.m */; };
+		AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */; };
+		AE8730BE1882336D00D5A9C8 /* CDCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */; };
+		AE8730C318825C1600D5A9C8 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730C218825C1600D5A9C8 /* ActivityViewController.m */; };
 		AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
 		AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E72187602DB00F23661 /* CoreGraphics.framework */; };
 		AE8C4E75187602DB00F23661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E74187602DB00F23661 /* UIKit.framework */; };
@@ -73,6 +78,16 @@
 		AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		AE1E9AE4187BD09D0021E629 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		AE8730B11881D62D00D5A9C8 /* PostsNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsNearMeViewController.h; sourceTree = "<group>"; };
+		AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsNearMeViewController.m; sourceTree = "<group>"; };
+		AE8730B5188225D900D5A9C8 /* CDPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPosts.h; sourceTree = "<group>"; };
+		AE8730B6188225D900D5A9C8 /* CDPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPosts.m; sourceTree = "<group>"; };
+		AE8730B91882304100D5A9C8 /* UITableView+Frames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Frames.h"; sourceTree = "<group>"; };
+		AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Frames.m"; sourceTree = "<group>"; };
+		AE8730BC1882336D00D5A9C8 /* CDCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCustomCell.h; sourceTree = "<group>"; };
+		AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCustomCell.m; sourceTree = "<group>"; };
+		AE8730C118825C1600D5A9C8 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		AE8730C218825C1600D5A9C8 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		AE8C4E6D187602DB00F23661 /* BuddyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8C4E70187602DB00F23661 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE8C4E72187602DB00F23661 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,9 +213,52 @@
 			name = "Segmented Control";
 			sourceTree = "<group>";
 		};
+		AE8730B41882259600D5A9C8 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				AE8730B5188225D900D5A9C8 /* CDPosts.h */,
+				AE8730B6188225D900D5A9C8 /* CDPosts.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		AE8730B81882303400D5A9C8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				AE8730B91882304100D5A9C8 /* UITableView+Frames.h */,
+				AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */,
+				AE8730BC1882336D00D5A9C8 /* CDCustomCell.h */,
+				AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		AE8730BF18825BC500D5A9C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AE9CC8161876279900A6E61D /* HomeViewController.h */,
+				AE9CC8171876279900A6E61D /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		AE8730C018825BD000D5A9C8 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				AE9CC8501879389500A6E61D /* PostViewController.h */,
+				AE9CC8511879389500A6E61D /* PostViewController.m */,
+				AE8730B11881D62D00D5A9C8 /* PostsNearMeViewController.h */,
+				AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */,
+				AE8730C118825C1600D5A9C8 /* ActivityViewController.h */,
+				AE8730C218825C1600D5A9C8 /* ActivityViewController.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
 		AE8C4E64187602DB00F23661 = {
 			isa = PBXGroup;
 			children = (
+				AE8730B41882259600D5A9C8 /* Modal */,
 				AE9CC8031876123200A6E61D /* Animation&Appearence&Function */,
 				AE8C4EAE1876039B00F23661 /* Controller */,
 				AE8C4E76187602DB00F23661 /* BuddyUp */,
@@ -301,6 +359,7 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence&Function */ = {
 			isa = PBXGroup;
 			children = (
+				AE8730B81882303400D5A9C8 /* TableView */,
 				AE1E9AE3187BD0360021E629 /* Segmented Control */,
 				AE1E9ADF187B3FF10021E629 /* DayPicker */,
 				AE9CC8531879419E00A6E61D /* Image */,
@@ -315,10 +374,8 @@
 		AE9CC815187626BA00A6E61D /* TabViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AE9CC8161876279900A6E61D /* HomeViewController.h */,
-				AE9CC8171876279900A6E61D /* HomeViewController.m */,
-				AE9CC8501879389500A6E61D /* PostViewController.h */,
-				AE9CC8511879389500A6E61D /* PostViewController.m */,
+				AE8730C018825BD000D5A9C8 /* Activity */,
+				AE8730BF18825BC500D5A9C8 /* Home */,
 			);
 			name = TabViewControllers;
 			sourceTree = "<group>";
@@ -501,6 +558,8 @@
 				AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */,
 				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
 				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
+				AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */,
+				AE8730BE1882336D00D5A9C8 /* CDCustomCell.m in Sources */,
 				AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */,
 				AE9CC8521879389500A6E61D /* PostViewController.m in Sources */,
 				AE9CC8401877641D00A6E61D /* TGRImageZoomAnimationController.m in Sources */,
@@ -508,10 +567,13 @@
 				AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */,
 				AE9CC8121876124F00A6E61D /* UIImage+ImageEffects.m in Sources */,
 				AE9CC8111876124F00A6E61D /* UIImage+BlurredFrame.m in Sources */,
+				AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */,
 				AE9CC8491878BABE00A6E61D /* UIImage+Resize.m in Sources */,
 				AE9CC8251876665300A6E61D /* TPKeyboardAvoidingScrollView.m in Sources */,
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
+				AE8730C318825C1600D5A9C8 /* ActivityViewController.m in Sources */,
+				AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,

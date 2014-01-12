@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 CDFLS. All rights reserved.
 //
 
-static NSUInteger const kPAWWallPostMaximumCharacterCount = 60;
 #import <UIKit/UIKit.h>
 #import "RMDateSelectionViewController.h"
 #import "TPKeyboardAvoidingScrollView.h"

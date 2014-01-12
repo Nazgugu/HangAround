@@ -11,26 +11,13 @@
 //static double const kPAWWallPostMaximumSearchDistance = 100.0;
 //static double const kPAWMetersInAKilometer = 1000.0; // this is an exact value.
 
-// Parse API key constants:
-static NSString * const kPAWParsePostsClassKey = @"Posts";
-static NSString * const kPAWParseUserKey = @"user";
-static NSString * const kPAWParseUsernameKey = @"username";
-static NSString * const kPAWParseTextKey = @"text";
-static NSString * const kPAWParseLocationKey = @"location";
-static NSString * const kPawParseTimeKey = @"time";
-static NSString * const kPawParseTypeKey = @"category";
 
-// NSNotification userInfo keys:
-static NSString * const kPAWFilterDistanceKey = @"filterDistance";
-static NSString * const kPAWLocationKey = @"location";
-
-//Notification Name
-static NSString * const kPAWLocationChangeNotification = @"kPAWLocationChangeNotification";
 
 #import "PostViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "HMSegmentedControl.h"
 #import <Parse/Parse.h>
+#import "CDAppDelegate.h"
 
 @interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
@@ -126,7 +113,7 @@ static NSString * const kPAWLocationChangeNotification = @"kPAWLocationChangeNot
     [clearButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
     locationText.rightViewMode = UITextFieldViewModeNever;
     [locationText setRightView:clearButton];
-    }
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -345,12 +332,15 @@ static NSString * const kPAWLocationChangeNotification = @"kPAWLocationChangeNot
         {
             NSLog(@"Successfully saved");
             NSLog(@"%@",postObject);
+            dispatch_async(dispatch_get_main_queue(), ^{
+				[[NSNotificationCenter defaultCenter] postNotificationName:kPAWPostCreatedNotification object:nil];
+			});
         }
     }];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -358,7 +348,8 @@ static NSString * const kPAWLocationChangeNotification = @"kPAWLocationChangeNot
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
-*/
+
 
 @end

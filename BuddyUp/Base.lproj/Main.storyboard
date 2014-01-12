@@ -273,6 +273,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="02c-e6-r6L"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateSelection" destination="Keg-Ky-NA4" id="riT-jY-CU3"/>
                         <outlet property="keyBoardAvoidingScrollView" destination="Vgd-mH-MxO" id="VfO-l5-Jgs"/>
@@ -312,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWi-vQ-9RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2082" y="-969"/>
+            <point key="canvasLocation" x="1919" y="-969"/>
         </scene>
         <!--Navigation Controller - Activity-->
         <scene sceneID="Ue8-By-DYv">
@@ -330,10 +331,63 @@
             </objects>
             <point key="canvasLocation" x="695" y="-403"/>
         </scene>
-        <!--View Controller - Activity-->
+        <!--Posts Near Me View Controller-->
+        <scene sceneID="KZR-mC-oDN">
+            <objects>
+                <tableViewController id="9bk-Pc-e1K" customClass="PostsNearMeViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6nK-cK-dOV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="80" id="4Yr-Az-xXe" customClass="CDCustomCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yr-Az-xXe" id="on7-3q-4s2">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0t-6M-AI9">
+                                            <rect key="frame" x="109" y="21" width="191" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKY-oc-Gcx">
+                                            <rect key="frame" x="109" y="43" width="82" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLr-WR-96f">
+                                            <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AvatarImage" destination="NLr-WR-96f" id="mih-uY-san"/>
+                                    <outlet property="Title" destination="O0t-6M-AI9" id="Gwb-ML-mex"/>
+                                    <outlet property="UserName" destination="HKY-oc-Gcx" id="tlY-gD-dj2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9bk-Pc-e1K" id="qDt-yB-eaP"/>
+                            <outlet property="delegate" destination="9bk-Pc-e1K" id="P0V-t0-KjO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3CR-rn-KV8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N2a-tR-gtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="-290"/>
+        </scene>
+        <!--Activity View Controller - Activity-->
         <scene sceneID="UKH-X7-fe9">
             <objects>
-                <viewController id="Epw-4B-Oag" sceneMemberID="viewController">
+                <viewController id="Epw-4B-Oag" customClass="ActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="48d-3k-GuI"/>
                         <viewControllerLayoutGuide type="bottom" id="35L-K7-uLB"/>
@@ -349,7 +403,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OX3-OH-qo3" kind="push" id="pWy-Le-Ues"/>
+                                    <segue destination="OX3-OH-qo3" kind="push" identifier="newPost" id="pWy-Le-Ues"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9u-dp-uDM">
@@ -372,6 +426,9 @@
                                 <state key="normal" title="LookUp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="9bk-Pc-e1K" kind="push" id="1eG-Ii-Zmm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
