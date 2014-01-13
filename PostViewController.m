@@ -19,6 +19,7 @@
 #import <Parse/Parse.h>
 #import "CDAppDelegate.h"
 #import "NearByPlaceTableViewController.h"
+#import "CDPosts.h"
 
 @interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
@@ -356,6 +357,7 @@
         NearByPlaceTableViewController *placeVC = segue.destinationViewController;
         placeVC.latitude = self.latitude;
         placeVC.longtitude = self.longtitude;
+        placeVC.typeString = [CDPosts convertType:typeSelection.selectedSegmentIndex];
     }
 }
 

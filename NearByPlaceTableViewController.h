@@ -11,4 +11,5 @@
 @interface NearByPlaceTableViewController : UITableViewController <UITableViewDataSource>
 @property (nonatomic) double latitude;
 @property (nonatomic) double longtitude;
+@property (strong, nonatomic) NSString *typeString;
 @end

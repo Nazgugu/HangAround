@@ -44,7 +44,7 @@
 
 - (void)makeRestaurantRequests
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants&sensor=true&location=%f,%f&radius=5000&key=AIzaSyBLlAZH4Ik9m94DRq9kCVtS8InyFpEh7u8",self.latitude,self.longtitude];
+    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?query=%@&sensor=true&location=%f,%f&radius=15000&key=AIzaSyBLlAZH4Ik9m94DRq9kCVtS8InyFpEh7u8",self.typeString,self.latitude,self.longtitude];
     NSLog(@"%@",urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
