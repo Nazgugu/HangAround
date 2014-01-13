@@ -18,6 +18,7 @@
 #import "HMSegmentedControl.h"
 #import <Parse/Parse.h>
 #import "CDAppDelegate.h"
+#import "NearByPlaceTableViewController.h"
 
 @interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
@@ -271,8 +272,9 @@
 
 - (void)updateLocation
 {
-    [locationManager startUpdatingLocation];
     locationText.placeholder = @"Updating Location";
+    [locationManager startUpdatingLocation];
+    locationText.placeholder = @"Show Location";
 }
 
 #pragma locationManagerDelegate
@@ -349,7 +351,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
+    if ([segue.identifier isEqualToString:@"selectLocation"])
+    {
+        NearByPlaceTableViewController *placeVC = segue.destinationViewController;
+        placeVC.latitude = self.latitude;
+        placeVC.longtitude = self.longtitude;
+    }
 }
 
 
