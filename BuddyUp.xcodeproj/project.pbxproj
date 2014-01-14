@@ -60,6 +60,7 @@
 		AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84B1878BC4A00A6E61D /* UIImage+RoundedCorner.m */; };
 		AE9CC84F1878BC7000A6E61D /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */; };
 		AE9CC8521879389500A6E61D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8511879389500A6E61D /* PostViewController.m */; };
+		AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150DC1884B9EC00334A15 /* Singleton.m */; };
 		AEFBD3ED1883C94A00548EF7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DB1883C94A00548EF7 /* AFHTTPRequestOperation.m */; };
 		AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DD1883C94A00548EF7 /* AFHTTPRequestOperationManager.m */; };
 		AEFBD3EF1883C94A00548EF7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DF1883C94A00548EF7 /* AFHTTPSessionManager.m */; };
@@ -175,6 +176,8 @@
 		AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		AE9CC8501879389500A6E61D /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		AE9CC8511879389500A6E61D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		AEF150DB1884B9EC00334A15 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		AEF150DC1884B9EC00334A15 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AEFBD3DA1883C94A00548EF7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		AEFBD3DB1883C94A00548EF7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		AEFBD3DC1883C94A00548EF7 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 		AE8730B41882259600D5A9C8 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				AEF150DB1884B9EC00334A15 /* Singleton.h */,
+				AEF150DC1884B9EC00334A15 /* Singleton.m */,
 				AE8730B5188225D900D5A9C8 /* CDPosts.h */,
 				AE8730B6188225D900D5A9C8 /* CDPosts.m */,
 			);
@@ -667,6 +672,7 @@
 				AEFBD3F21883C94A00548EF7 /* AFURLConnectionOperation.m in Sources */,
 				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
 				AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */,
+				AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */,
 				AE8730BE1882336D00D5A9C8 /* CDCustomCell.m in Sources */,
 				AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */,
 				AE9CC8521879389500A6E61D /* PostViewController.m in Sources */,

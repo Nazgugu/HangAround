@@ -158,8 +158,8 @@
         cell.detailPost = [[CDPosts alloc] init];
         cell.detailPost.text = text;
         cell.detailPost.user = userName;
-        cell.detailPost.type = [CDPosts convertType:[[object objectForKey:kPawParseTypeKey] intValue]];
-        cell.detailPost.time = [object objectForKey:kPawParseTimeKey];
+        cell.detailPost.type = [CDPosts convertType:[[object objectForKey:kPAWParseTypeKey] intValue]];
+        cell.detailPost.time = [object objectForKey:kPAWParseTimeKey];
     }
     return cell;
 }

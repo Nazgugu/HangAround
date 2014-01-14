@@ -8,10 +8,13 @@
 
 #import "NearByPlaceTableViewController.h"
 #import "AFNetworking.h"
+#import "Singleton.h"
 
 @interface NearByPlaceTableViewController ()
 @property (strong, nonatomic) NSArray *googlePlacesArrayFromAFNetworking;
 @property (strong, nonatomic) NSArray *finishedGooglePlacesArray;
+@property (nonatomic) double retLat;
+@property (nonatomic) double retLon;
 @end
 
 @implementation NearByPlaceTableViewController
@@ -99,6 +102,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *tempDictionary = [self.googlePlacesArrayFromAFNetworking objectAtIndex:indexPath.row];
+    NSDictionary *coordinateDict = [[tempDictionary objectForKey:@"geometry"] objectForKey:@"location"];;
+    [Singleton globalData].latitude = [[coordinateDict objectForKey:@"lat"] doubleValue];
+    [Singleton globalData].longtitude = [[coordinateDict objectForKey:@"lng"] doubleValue];
+    [Singleton globalData].locationString = [tempDictionary objectForKey:@"name"];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

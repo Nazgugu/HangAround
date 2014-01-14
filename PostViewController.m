@@ -20,6 +20,7 @@
 #import "CDAppDelegate.h"
 #import "NearByPlaceTableViewController.h"
 #import "CDPosts.h"
+#import "Singleton.h"
 
 @interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
@@ -106,6 +107,7 @@
     typeSelection.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     [typeSelection setFrame:CGRectMake(17, 230, 286, 40)];
     [typeSelection addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [typeSelection setSelectedSegmentIndex:0];
     [keyBoardAvoidingScrollView addSubview:typeSelection];
     
     //locationText clear button
@@ -123,6 +125,13 @@
     locationManager.distanceFilter = 50.0f;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     locationManager.delegate = self;
+    BOOL global = [[Singleton globalData].locationString isEqualToString:@""];
+    if (global ==  false)
+    {
+        locationText.text = [Singleton globalData].locationString;
+        self.latitude = [Singleton globalData].latitude;
+        self.longtitude = [Singleton globalData].longtitude;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -319,10 +328,11 @@
     //wrap up all the posting components into a postObject and send this async to Parse
     PFObject *postObject = [PFObject objectWithClassName:kPAWParsePostsClassKey];
     [postObject setObject:textView.text forKey:kPAWParseTextKey];
-    [postObject setObject:[NSString stringWithFormat:@"%ld", (long)typeSelection.selectedSegmentIndex] forKey:kPawParseTypeKey];
-    [postObject setObject:dateSelection.text forKey:kPawParseTimeKey];
+    [postObject setObject:[NSString stringWithFormat:@"%ld", (long)typeSelection.selectedSegmentIndex] forKey:kPAWParseTypeKey];
+    [postObject setObject:dateSelection.text forKey:kPAWParseTimeKey];
     [postObject setObject:user forKey:kPAWParseUserKey];
     [postObject setObject:currentPoint forKey:kPAWParseLocationKey];
+    [postObject setObject:locationText.text forKey:kPAWParseLocationNameKey];
     [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
        if (error)
        {
