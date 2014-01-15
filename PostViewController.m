@@ -21,6 +21,8 @@
 #import "NearByPlaceTableViewController.h"
 #import "CDPosts.h"
 #import "Singleton.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
 {
@@ -59,7 +61,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //right bar button
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post!" style:UIBarButtonItemStyleBordered target:self action:@selector(postToServer)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post!" style:UIBarButtonItemStyleBordered target:self action:@selector(getAddressWithCurrentLocation:)];
     
     //Setup boarder for textview
     textView.layer.borderWidth = 1;
@@ -113,10 +115,11 @@
     //locationText clear button
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [clearButton setImage:[UIImage imageNamed:@"clearButton.png"] forState:UIControlStateNormal];
-    [clearButton setFrame:CGRectMake(-15, 0, 20, 20)];
+    [clearButton setFrame:CGRectMake(0, 0, 20, 20)];
     [clearButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
     locationText.rightViewMode = UITextFieldViewModeNever;
     [locationText setRightView:clearButton];
+    //locationString
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -137,6 +140,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [locationManager stopUpdatingLocation];
+    [Singleton globalData].locationString = @"";
+    [Singleton globalData].latitude = 0.0f;
+    [Singleton globalData].longtitude = 0.0f;
+    [Singleton globalData].addName = @"";
+    [Singleton globalData].textString = @"";
+    [Singleton globalData].timeString = @"";
 }
 
 #pragma segmentedControl
@@ -284,6 +293,9 @@
 {
     locationText.placeholder = @"Updating Location";
     [locationManager startUpdatingLocation];
+    CLLocation *currentLocation = locationManager.location;
+    CLLocationCoordinate2D currentCoordinate = currentLocation.coordinate;
+    locationText.text = [NSString stringWithFormat:@"Lat: %.3f, Lon: %.3f",currentCoordinate.latitude,currentCoordinate.longitude];
     locationText.placeholder = @"Show Location";
 }
 
@@ -302,11 +314,10 @@
     CLLocationCoordinate2D currentCoordinate = currentLocation.coordinate;
     if (currentLocation)
     {
-        locationText.text = [NSString stringWithFormat:@"Lat: %.3f, Lon: %.3f",currentCoordinate.latitude,currentCoordinate.longitude];
         self.latitude = currentCoordinate.latitude;
         self.longtitude = currentCoordinate.longitude;
+        locationText.text = [NSString stringWithFormat:@"Lat: %.3f, Lon: %.3f",self.latitude,self.longtitude];
     }
-    [locationManager stopUpdatingLocation];
 }
 
 #pragma postToServer
@@ -320,7 +331,18 @@
         [textView becomeFirstResponder];
         return;
     }
-    
+    if ([locationText.text isEqualToString:@""])
+    {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"You need to set a location" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+        [alter show];
+        return;
+    }
+    if (!dateSelection.text)
+    {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"You need to set the time" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+        [alter show];
+        return;
+    }
     //prepare data
     
     PFUser *user = [PFUser currentUser];
@@ -332,28 +354,76 @@
     [postObject setObject:dateSelection.text forKey:kPAWParseTimeKey];
     [postObject setObject:user forKey:kPAWParseUserKey];
     [postObject setObject:currentPoint forKey:kPAWParseLocationKey];
-    [postObject setObject:locationText.text forKey:kPAWParseLocationNameKey];
-    [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-       if (error)
-       {
-           NSLog(@"Could't save!");
-           NSLog(@"%@",error);
-           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[error userInfo] objectForKey:@"error"] message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-           [alertView show];
-           return;
-       }
-        if (succeeded)
-        {
-            NSLog(@"Successfully saved");
-            NSLog(@"%@",postObject);
-            dispatch_async(dispatch_get_main_queue(), ^{
+    if ([locationText.text hasPrefix:@"Lat"])
+    {
+        [postObject setObject:@"" forKey:kPAWParseLocationNameKey];
+    }
+    else
+    {
+        [postObject setObject:locationText.text forKey:kPAWParseLocationNameKey];
+    }
+    if ([[Singleton globalData].addName isEqualToString:@""])
+    {
+        NSLog(@"No exact address");
+        NSLog(@"(In here) %@",[Singleton globalData].addName);
+        [postObject setObject:[Singleton globalData].addName forKey:kPAWParseLocationAddressKey];
+    }
+    else
+    {
+        [postObject setObject:[Singleton globalData].addName forKey:kPAWParseLocationAddressKey];
+    }
+    if (![[Singleton globalData].addName isEqualToString:@""])
+    {
+        [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (error)
+            {
+                NSLog(@"Could't save!");
+                NSLog(@"%@",error);
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[error userInfo] objectForKey:@"error"] message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alertView show];
+                return;
+            }
+            if (succeeded)
+            {
+                NSLog(@"Successfully saved");
+                NSLog(@"%@",postObject);
+                dispatch_async(dispatch_get_main_queue(), ^{
 				[[NSNotificationCenter defaultCenter] postNotificationName:kPAWPostCreatedNotification object:nil];
 			});
         }
-    }];
+        }];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)getAddressWithCurrentLocation:(CLLocationCoordinate2D)coordinate
+{
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:self.latitude longitude:self.longtitude];
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placeMarks, NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"Geocoding failed with error%@",error);
+             [Singleton globalData].addName = @"";
+         }
+         else
+         {
+             NSLog(@"Can you see me in the completion block?");
+            CLPlacemark *placeMark = placeMarks[0];
+            NSDictionary *addressDict = placeMark.addressDictionary;
+             NSString *addString = [NSString stringWithFormat:@"%@",ABCreateStringWithAddressDictionary(addressDict, YES)];
+             [self setAddress:addString];
+         }
+     }];
+}
+
+- (void)setAddress:(NSString *)addString
+{
+    [Singleton globalData].addName = addString;
+    NSLog(@"(out here)%@",[Singleton globalData].addName);
+    [self postToServer];
+}
 
 #pragma mark - Navigation
 

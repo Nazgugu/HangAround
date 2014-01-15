@@ -13,5 +13,9 @@
 @property (nonatomic, copy) NSString *user;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *addName;
+@property (nonatomic, copy) NSString *storeName;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longtitude;
 + (NSString *)convertType:(NSUInteger)typeIndex;
 @end

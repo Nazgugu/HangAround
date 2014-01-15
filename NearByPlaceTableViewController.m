@@ -109,6 +109,7 @@
     [Singleton globalData].latitude = [[coordinateDict objectForKey:@"lat"] doubleValue];
     [Singleton globalData].longtitude = [[coordinateDict objectForKey:@"lng"] doubleValue];
     [Singleton globalData].locationString = [tempDictionary objectForKey:@"name"];
+    [Singleton globalData].addName = [tempDictionary objectForKey:@"formatted_address"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

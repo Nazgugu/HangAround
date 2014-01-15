@@ -13,8 +13,9 @@
 #import "CDCustomCell.h"
 #import "CDPosts.h"
 #import "CDAppDelegate.h"
+#import "DetailPostViewController.h"
 
-@interface PostsNearMeViewController ()<CLLocationManagerDelegate>
+@interface PostsNearMeViewController ()<CLLocationManagerDelegate, UITableViewDataSource>
 {
     CLLocationManager *locationManager;
 }
@@ -160,6 +161,11 @@
         cell.detailPost.user = userName;
         cell.detailPost.type = [CDPosts convertType:[[object objectForKey:kPAWParseTypeKey] intValue]];
         cell.detailPost.time = [object objectForKey:kPAWParseTimeKey];
+        cell.detailPost.addName = [object objectForKey:kPAWParseLocationAddressKey];
+        cell.detailPost.storeName = [object objectForKey:kPAWParseLocationNameKey];
+        PFGeoPoint *point = [object objectForKey:kPAWParseLocationKey];
+        cell.detailPost.latitude = point.latitude;
+        cell.detailPost.longtitude = point.longitude;
     }
     return cell;
 }
@@ -174,6 +180,17 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+- (void)tableview:(UITableView *)tableView didSelectRowAtIndexPath:
+    (NSIndexPath *)indexPath
+{
+    id detailvc = [self.splitViewController.viewControllers lastObject];
+    if ([detailvc isKindOfClass:[UINavigationController class]])
+    {
+        detailvc = [((UINavigationController *)detailvc).viewControllers firstObject];
+        [self prepareViewController:detailvc forSegue:nil fromIndexPath:indexPath];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,7 +221,7 @@
 {
     [self loadObjects];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -212,7 +229,32 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    [self prepareViewController:segue.destinationViewController forSegue:segue.identifier fromIndexPath:indexPath];
 }
-*/
+
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath
+{
+    if ([vc isKindOfClass:[DetailPostViewController class]])
+    {
+        DetailPostViewController *detailPostVC = (DetailPostViewController *)vc;
+        if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[CDCustomCell class]])
+        {
+            CDCustomCell *selectedCell = (CDCustomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            NSLog(@"%@\n%@\n%@\n%@\n%@\n%f\n%f\n",selectedCell.detailPost.text,selectedCell.detailPost.user,selectedCell.detailPost.type,selectedCell.detailPost.addName,selectedCell.detailPost.storeName,selectedCell.detailPost.latitude,selectedCell.detailPost.longtitude);
+            detailPostVC.postText = selectedCell.detailPost.text;
+            detailPostVC.type = selectedCell.detailPost.type;
+            detailPostVC.locationAddress = selectedCell.detailPost.addName;
+            detailPostVC.latitude = selectedCell.detailPost.latitude;
+            detailPostVC.longtitude = selectedCell.detailPost.longtitude;
+            detailPostVC.storeName = selectedCell.detailPost.storeName;
+            detailPostVC.Name = selectedCell.detailPost.user;
+        }
+    }
+}
 
 @end

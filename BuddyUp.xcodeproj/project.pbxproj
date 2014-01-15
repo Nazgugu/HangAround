@@ -61,6 +61,10 @@
 		AE9CC84F1878BC7000A6E61D /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */; };
 		AE9CC8521879389500A6E61D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8511879389500A6E61D /* PostViewController.m */; };
 		AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150DC1884B9EC00334A15 /* Singleton.m */; };
+		AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E31885B5AF00334A15 /* DetailPostViewController.m */; };
+		AEF150E8188603C200334A15 /* CDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E7188603C200334A15 /* CDAnnotation.m */; };
+		AEF150EA188648D000334A15 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF150E9188648D000334A15 /* AddressBook.framework */; };
+		AEF150EC18864DAB00334A15 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF150EB18864DAB00334A15 /* AddressBookUI.framework */; };
 		AEFBD3ED1883C94A00548EF7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DB1883C94A00548EF7 /* AFHTTPRequestOperation.m */; };
 		AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DD1883C94A00548EF7 /* AFHTTPRequestOperationManager.m */; };
 		AEFBD3EF1883C94A00548EF7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFBD3DF1883C94A00548EF7 /* AFHTTPSessionManager.m */; };
@@ -178,6 +182,12 @@
 		AE9CC8511879389500A6E61D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		AEF150DB1884B9EC00334A15 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		AEF150DC1884B9EC00334A15 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		AEF150E21885B5AF00334A15 /* DetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPostViewController.h; sourceTree = "<group>"; };
+		AEF150E31885B5AF00334A15 /* DetailPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPostViewController.m; sourceTree = "<group>"; };
+		AEF150E6188603C200334A15 /* CDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAnnotation.h; sourceTree = "<group>"; };
+		AEF150E7188603C200334A15 /* CDAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAnnotation.m; sourceTree = "<group>"; };
+		AEF150E9188648D000334A15 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AEF150EB18864DAB00334A15 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AEFBD3DA1883C94A00548EF7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		AEFBD3DB1883C94A00548EF7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		AEFBD3DC1883C94A00548EF7 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -221,6 +231,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF150EC18864DAB00334A15 /* AddressBookUI.framework in Frameworks */,
+				AEF150EA188648D000334A15 /* AddressBook.framework in Frameworks */,
 				AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */,
 				AE8C4EBA1876043100F23661 /* CoreLocation.framework in Frameworks */,
 				AE8C4EB21876041100F23661 /* Parse.framework in Frameworks */,
@@ -276,6 +288,8 @@
 				AEF150DC1884B9EC00334A15 /* Singleton.m */,
 				AE8730B5188225D900D5A9C8 /* CDPosts.h */,
 				AE8730B6188225D900D5A9C8 /* CDPosts.m */,
+				AEF150E6188603C200334A15 /* CDAnnotation.h */,
+				AEF150E7188603C200334A15 /* CDAnnotation.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -311,6 +325,8 @@
 				AE8730C218825C1600D5A9C8 /* ActivityViewController.m */,
 				AEFBD40D1883C9F700548EF7 /* NearByPlaceTableViewController.h */,
 				AEFBD40E1883C9F700548EF7 /* NearByPlaceTableViewController.m */,
+				AEF150E21885B5AF00334A15 /* DetailPostViewController.h */,
+				AEF150E31885B5AF00334A15 /* DetailPostViewController.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -342,6 +358,8 @@
 		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEF150EB18864DAB00334A15 /* AddressBookUI.framework */,
+				AEF150E9188648D000334A15 /* AddressBook.framework */,
 				AE117780187D3E30003CE39E /* MapKit.framework */,
 				AE8C4EC318760D2300F23661 /* libz.1.1.3.dylib */,
 				AE8C4EBF1876049400F23661 /* StoreKit.framework */,
@@ -670,6 +688,7 @@
 				AEFBD40B1883C99100548EF7 /* UIProgressView+AFNetworking.m in Sources */,
 				AEFBD4061883C99100548EF7 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				AEFBD3F21883C94A00548EF7 /* AFURLConnectionOperation.m in Sources */,
+				AEF150E8188603C200334A15 /* CDAnnotation.m in Sources */,
 				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
 				AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */,
 				AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */,
@@ -693,6 +712,7 @@
 				AE8730C318825C1600D5A9C8 /* ActivityViewController.m in Sources */,
 				AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */,
 				AEFBD3F11883C94A00548EF7 /* AFSecurityPolicy.m in Sources */,
+				AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */,
 				AEFBD3F51883C94A00548EF7 /* AFURLSessionManager.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
 				AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */,

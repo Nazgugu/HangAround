@@ -11,6 +11,7 @@
 #import "TGRImageViewController.h"
 #import "TGRImageZoomAnimationController.h"
 #import "UIImage+Resize.h"
+#import "Singleton.h"
 
 @interface HomeViewController ()<UIViewControllerTransitioningDelegate>
 {
@@ -89,19 +90,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 保存图片至沙盒
-- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
-{
-    NSData *imageData = UIImageJPEGRepresentation(currentImage, 1.0);
-    // 获取沙盒目录
-    
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
-    
-    // 将图片写入文件
-    
-    [imageData writeToFile:fullPath atomically:NO];
-}
-
 #pragma mark - image picker delegte
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -113,7 +101,7 @@
         CGFloat height = 480.0f;
         CGFloat width = (height / image.size.height) * image.size.width;
         UIImage *newImage = [image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationDefault];
-        [self saveImage:newImage withName:@"currentImage.png"];
+        [Singleton globalData].avatar = newImage;
     
         dispatch_async(dispatch_get_main_queue(), ^{
             //NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
@@ -135,8 +123,7 @@
 - (void)uploadImage
 {
     //get image from sandbox
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
-    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+    UIImage *savedImage = [Singleton globalData].avatar;
     NSData *imageData = UIImagePNGRepresentation(savedImage);
     //upload to database
     NSString *userImageFileName = [NSString stringWithFormat:@"%@_UserProfile.jpeg",[[PFUser currentUser] username]];

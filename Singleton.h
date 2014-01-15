@@ -15,6 +15,8 @@
 @property (nonatomic) double latitude;
 @property (nonatomic) double longtitude;
 @property (strong, nonatomic) NSString *timeString;
+@property (strong, nonatomic) UIImage *avatar;
+@property (strong, nonatomic) NSString *addName;
 
 +(Singleton *)globalData;
 

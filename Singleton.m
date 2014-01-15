@@ -9,7 +9,7 @@
 #import "Singleton.h"
 
 @implementation Singleton
-@synthesize textString, locationString, typeIndex, latitude, longtitude, timeString;
+@synthesize textString, locationString, typeIndex, latitude, longtitude, timeString, avatar, addName;
 
 + (Singleton *)globalData
 {
@@ -35,6 +35,8 @@
         latitude = 0.0f;
         longtitude = 0.0f;
         timeString = @"";
+        avatar = nil;
+        addName = @"";
     }
     return self;
 }
