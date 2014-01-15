@@ -8,6 +8,7 @@
 
 #import "ActivityViewController.h"
 #import "PostViewController.h"
+#import "PostsNearMeViewController.h"
 
 @interface ActivityViewController ()
 
@@ -47,6 +48,11 @@
     if ([segue.identifier isEqualToString:@"newPost"])
     {
         PostViewController *destViewController = segue.destinationViewController;
+        destViewController.hidesBottomBarWhenPushed = YES;
+    }
+    if ([segue.identifier isEqualToString:@"postNearme"])
+    {
+        PostsNearMeViewController *destViewController = segue.destinationViewController;
         destViewController.hidesBottomBarWhenPushed = YES;
     }
 }

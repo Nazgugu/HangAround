@@ -460,6 +460,7 @@
                                 </state>
                                 <connections>
                                     <action selector="chatButton:" destination="stV-Gi-xWF" eventType="touchUpInside" id="B74-yc-bT1"/>
+                                    <segue destination="moy-Mi-g3x" kind="push" id="s6N-po-0Ll"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-A8-nuM">
@@ -483,6 +484,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsI-LG-R7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1927" y="-290"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="fVM-lG-naL">
+            <objects>
+                <viewController id="moy-Mi-g3x" customClass="ChatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="apg-HY-Gxc"/>
+                        <viewControllerLayoutGuide type="bottom" id="UJp-KP-LNr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BaS-Sq-VoG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dtY-R9-Tyw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqe-hu-OMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2300" y="-283"/>
         </scene>
         <!--Activity View Controller - Activity-->
         <scene sceneID="UKH-X7-fe9">
@@ -527,7 +547,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9bk-Pc-e1K" kind="push" id="1eG-Ii-Zmm"/>
+                                    <segue destination="9bk-Pc-e1K" kind="push" identifier="postNearme" id="1eG-Ii-Zmm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -552,9 +572,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="TZm-LT-cwh" kind="relationship" relationship="viewControllers" id="jLm-oN-QkB"/>
+                        <segue destination="TLh-jr-P1f" kind="relationship" relationship="viewControllers" id="30W-s2-FS1"/>
                         <segue destination="vwD-AB-z4z" kind="relationship" relationship="viewControllers" id="kbj-tf-Jgh"/>
                         <segue destination="FTX-aV-YTw" kind="relationship" relationship="viewControllers" id="5VB-6K-S4P"/>
-                        <segue destination="TLh-jr-P1f" kind="relationship" relationship="viewControllers" id="30W-s2-FS1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emX-Jm-abr" userLabel="First Responder" sceneMemberID="firstResponder"/>

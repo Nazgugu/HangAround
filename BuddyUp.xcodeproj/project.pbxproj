@@ -11,6 +11,10 @@
 		AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */; };
 		AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */; };
 		AE7192871887287300728CFE /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7192861887287300728CFE /* VPImageCropperViewController.m */; };
+		AE7192891887409700728CFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7192881887409700728CFE /* CoreData.framework */; };
+		AE71928B188740AC00728CFE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71928A188740AC00728CFE /* libicucore.dylib */; };
+		AE71928D188740BD00728CFE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71928C188740BD00728CFE /* CoreTelephony.framework */; };
+		AE719292188741C600728CFE /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE719291188741C600728CFE /* ChatViewController.m */; };
 		AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */; };
 		AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B6188225D900D5A9C8 /* CDPosts.m */; };
 		AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */; };
@@ -103,6 +107,11 @@
 		AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		AE7192851887287300728CFE /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		AE7192861887287300728CFE /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		AE7192881887409700728CFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AE71928A188740AC00728CFE /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		AE71928C188740BD00728CFE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AE719290188741C600728CFE /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		AE719291188741C600728CFE /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		AE8730B11881D62D00D5A9C8 /* PostsNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsNearMeViewController.h; sourceTree = "<group>"; };
 		AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsNearMeViewController.m; sourceTree = "<group>"; };
 		AE8730B5188225D900D5A9C8 /* CDPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPosts.h; sourceTree = "<group>"; };
@@ -234,6 +243,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE71928D188740BD00728CFE /* CoreTelephony.framework in Frameworks */,
+				AE71928B188740AC00728CFE /* libicucore.dylib in Frameworks */,
+				AE7192891887409700728CFE /* CoreData.framework in Frameworks */,
 				AEF150EC18864DAB00334A15 /* AddressBookUI.framework in Frameworks */,
 				AEF150EA188648D000334A15 /* AddressBook.framework in Frameworks */,
 				AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */,
@@ -330,6 +342,8 @@
 				AEFBD40E1883C9F700548EF7 /* NearByPlaceTableViewController.m */,
 				AEF150E21885B5AF00334A15 /* DetailPostViewController.h */,
 				AEF150E31885B5AF00334A15 /* DetailPostViewController.m */,
+				AE719290188741C600728CFE /* ChatViewController.h */,
+				AE719291188741C600728CFE /* ChatViewController.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -361,6 +375,9 @@
 		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE71928C188740BD00728CFE /* CoreTelephony.framework */,
+				AE71928A188740AC00728CFE /* libicucore.dylib */,
+				AE7192881887409700728CFE /* CoreData.framework */,
 				AEF150EB18864DAB00334A15 /* AddressBookUI.framework */,
 				AEF150E9188648D000334A15 /* AddressBook.framework */,
 				AE117780187D3E30003CE39E /* MapKit.framework */,
@@ -712,6 +729,7 @@
 				AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */,
 				AE9CC8491878BABE00A6E61D /* UIImage+Resize.m in Sources */,
 				AE9CC8251876665300A6E61D /* TPKeyboardAvoidingScrollView.m in Sources */,
+				AE719292188741C600728CFE /* ChatViewController.m in Sources */,
 				AEFBD40F1883C9F700548EF7 /* NearByPlaceTableViewController.m in Sources */,
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
@@ -866,6 +884,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Dropbox/ComputerScience/iOS/WinterProj,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";
@@ -883,6 +902,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Dropbox/ComputerScience/iOS/WinterProj,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuddyUp/BuddyUp-Prefix.pch";

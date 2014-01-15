@@ -104,6 +104,7 @@
     CLLocationAccuracy filterDistance = 5000;
     PFGeoPoint *point =  [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
     [query whereKey:kPAWParseLocationKey nearGeoPoint:point withinKilometers:filterDistance/1000];
+    [query whereKey:kPAWParseUserKey notEqualTo:[PFUser currentUser]];
     [query includeKey:kPAWParseUserKey];
     return query;
 }
