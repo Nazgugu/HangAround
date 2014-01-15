@@ -10,6 +10,7 @@
 		AE117781187D3E30003CE39E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE117780187D3E30003CE39E /* MapKit.framework */; };
 		AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */; };
 		AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */; };
+		AE7192871887287300728CFE /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7192861887287300728CFE /* VPImageCropperViewController.m */; };
 		AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */; };
 		AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B6188225D900D5A9C8 /* CDPosts.m */; };
 		AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */; };
@@ -100,6 +101,8 @@
 		AE1E9AE1187B3FFD0021E629 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		AE1E9AE4187BD09D0021E629 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		AE1E9AE5187BD09D0021E629 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		AE7192851887287300728CFE /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		AE7192861887287300728CFE /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		AE8730B11881D62D00D5A9C8 /* PostsNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsNearMeViewController.h; sourceTree = "<group>"; };
 		AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsNearMeViewController.m; sourceTree = "<group>"; };
 		AE8730B5188225D900D5A9C8 /* CDPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPosts.h; sourceTree = "<group>"; };
@@ -524,6 +527,8 @@
 		AE9CC8531879419E00A6E61D /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				AE7192851887287300728CFE /* VPImageCropperViewController.h */,
+				AE7192861887287300728CFE /* VPImageCropperViewController.m */,
 				AE9CC84D1878BC7000A6E61D /* UIImage+Alpha.h */,
 				AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */,
 				AE9CC84A1878BC4A00A6E61D /* UIImage+RoundedCorner.h */,
@@ -698,6 +703,7 @@
 				AE9CC8401877641D00A6E61D /* TGRImageZoomAnimationController.m in Sources */,
 				AEFBD4091883C99100548EF7 /* UIButton+AFNetworking.m in Sources */,
 				AEFBD3F31883C94A00548EF7 /* AFURLRequestSerialization.m in Sources */,
+				AE7192871887287300728CFE /* VPImageCropperViewController.m in Sources */,
 				AE9CC8261876665300A6E61D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				AEFBD40C1883C99100548EF7 /* UIWebView+AFNetworking.m in Sources */,
 				AE8C4EAD1876039300F23661 /* SignUpViewController.m in Sources */,
