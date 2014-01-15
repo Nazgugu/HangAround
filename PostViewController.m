@@ -362,19 +362,8 @@
     {
         [postObject setObject:locationText.text forKey:kPAWParseLocationNameKey];
     }
-    if ([[Singleton globalData].addName isEqualToString:@""])
-    {
-        NSLog(@"No exact address");
-        NSLog(@"(In here) %@",[Singleton globalData].addName);
-        [postObject setObject:[Singleton globalData].addName forKey:kPAWParseLocationAddressKey];
-    }
-    else
-    {
-        [postObject setObject:[Singleton globalData].addName forKey:kPAWParseLocationAddressKey];
-    }
-    if (![[Singleton globalData].addName isEqualToString:@""])
-    {
-        [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+    [postObject setObject:[Singleton globalData].addName forKey:kPAWParseLocationAddressKey];
+    [postObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (error)
             {
                 NSLog(@"Could't save!");
@@ -392,12 +381,14 @@
 			});
         }
         }];
-    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)getAddressWithCurrentLocation:(CLLocationCoordinate2D)coordinate
 {
+    
+    if ([[Singleton globalData].addName isEqualToString:@""])
+    {
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:self.latitude longitude:self.longtitude];
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placeMarks, NSError *error)
@@ -416,6 +407,11 @@
              [self setAddress:addString];
          }
      }];
+    }
+    else
+    {
+        [self postToServer];
+    }
 }
 
 - (void)setAddress:(NSString *)addString
