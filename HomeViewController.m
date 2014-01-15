@@ -101,11 +101,7 @@
     //isFullScreen = NO;
     [UserImage setImage:[Singleton globalData].avatar];
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
-        queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-        dispatch_async(queue, ^{
-            [self uploadImage];
             isFullScreen = NO;
-        });
     }];
 }
 
@@ -140,6 +136,10 @@
     CGFloat width = (height / image.size.height) * image.size.width;
     UIImage *newImage = [image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationDefault];
     [Singleton globalData].avatar = newImage;
+    queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_async(queue, ^{
+        [self uploadImage];
+    });
 }
 
 #pragma mark image scale utility
