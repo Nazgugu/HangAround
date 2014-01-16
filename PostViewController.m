@@ -23,8 +23,10 @@
 #import "Singleton.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "NZAlertView.h"
+#import "NZAlertViewDelegate.h"
 
-@interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate>
+@interface PostViewController ()<RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate, NZAlertViewDelegate>
 {
     dispatch_queue_t queue;
     CLLocationManager *locationManager;
@@ -333,14 +335,14 @@
     }
     if ([locationText.text isEqualToString:@""])
     {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"You need to set a location" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-        [alter show];
+        NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleInfo title:@"Missing Info" message:@"Please choose a location" delegate:self];
+        [alert show];
         return;
     }
     if (!dateSelection.text)
     {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"You need to set the time" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-        [alter show];
+        NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleInfo title:@"Missing Info" message:@"Please select the time" delegate:self];
+        [alert show];
         return;
     }
     //prepare data
@@ -381,7 +383,9 @@
 			});
         }
         }];
-    [self.navigationController popViewControllerAnimated:YES];
+    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Cheers" message:@"Post succeed" delegate:self];
+    [alert show];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)getAddressWithCurrentLocation:(CLLocationCoordinate2D)coordinate

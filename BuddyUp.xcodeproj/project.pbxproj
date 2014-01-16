@@ -74,6 +74,7 @@
 		AEEC217D188885D800D1E234 /* NZAlertView-Icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEEC217B188885D800D1E234 /* NZAlertView-Icons.bundle */; };
 		AEEC2180188885ED00D1E234 /* UIColor+StyleColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC217F188885ED00D1E234 /* UIColor+StyleColor.m */; };
 		AEEC21831888860800D1E234 /* NZAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEC21821888860800D1E234 /* NZAlertView.xib */; };
+		AEEC21861888998300D1E234 /* DCModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC21851888998300D1E234 /* DCModalSegue.m */; };
 		AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150DC1884B9EC00334A15 /* Singleton.m */; };
 		AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E31885B5AF00334A15 /* DetailPostViewController.m */; };
 		AEF150E8188603C200334A15 /* CDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E7188603C200334A15 /* CDAnnotation.m */; };
@@ -218,6 +219,8 @@
 		AEEC217F188885ED00D1E234 /* UIColor+StyleColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+StyleColor.m"; sourceTree = "<group>"; };
 		AEEC21811888860200D1E234 /* NZAlertViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NZAlertViewDelegate.h; sourceTree = "<group>"; };
 		AEEC21821888860800D1E234 /* NZAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NZAlertView.xib; sourceTree = "<group>"; };
+		AEEC21841888998300D1E234 /* DCModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCModalSegue.h; sourceTree = "<group>"; };
+		AEEC21851888998300D1E234 /* DCModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCModalSegue.m; sourceTree = "<group>"; };
 		AEF150DB1884B9EC00334A15 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		AEF150DC1884B9EC00334A15 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AEF150E21885B5AF00334A15 /* DetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPostViewController.h; sourceTree = "<group>"; };
@@ -489,6 +492,7 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence&Function */ = {
 			isa = PBXGroup;
 			children = (
+				AEEC21871888998A00D1E234 /* Modal Segue */,
 				AEEC2178188885B400D1E234 /* AlertView */,
 				AEEC216B188884FE00D1E234 /* ImageBlur */,
 				AE8730B81882303400D5A9C8 /* TableView */,
@@ -614,6 +618,15 @@
 				AEEC217B188885D800D1E234 /* NZAlertView-Icons.bundle */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		AEEC21871888998A00D1E234 /* Modal Segue */ = {
+			isa = PBXGroup;
+			children = (
+				AEEC21841888998300D1E234 /* DCModalSegue.h */,
+				AEEC21851888998300D1E234 /* DCModalSegue.m */,
+			);
+			name = "Modal Segue";
 			sourceTree = "<group>";
 		};
 		AEFBD3D91883C92100548EF7 /* AFNetworking */ = {
@@ -807,6 +820,7 @@
 				AE7741E91887B277002A0E96 /* PersonalDetailViewController.m in Sources */,
 				AEEC2175188885AE00D1E234 /* UIImage+Blur.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
+				AEEC21861888998300D1E234 /* DCModalSegue.m in Sources */,
 				AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
 				AE8C4E87187602DB00F23661 /* CDViewController.m in Sources */,

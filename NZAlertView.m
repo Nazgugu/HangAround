@@ -12,8 +12,8 @@
 #import "UIImage+Blur.h"
 #import "UIImage+Screenshot.h"
 
-static float const kAlertDuration = 0.6f;
-static float const kAnimateDuration = .6f;
+static float const kAlertDuration = 0.5f;
+static float const kAnimateDuration = .5f;
 static float const kBlurParameter = .6f;
 static BOOL IsPresenting;
 
