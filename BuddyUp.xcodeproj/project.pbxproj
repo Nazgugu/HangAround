@@ -15,6 +15,7 @@
 		AE71928B188740AC00728CFE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71928A188740AC00728CFE /* libicucore.dylib */; };
 		AE71928D188740BD00728CFE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71928C188740BD00728CFE /* CoreTelephony.framework */; };
 		AE719292188741C600728CFE /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE719291188741C600728CFE /* ChatViewController.m */; };
+		AE7741E91887B277002A0E96 /* PersonalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7741E81887B277002A0E96 /* PersonalDetailViewController.m */; };
 		AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */; };
 		AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B6188225D900D5A9C8 /* CDPosts.m */; };
 		AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */; };
@@ -112,6 +113,8 @@
 		AE71928C188740BD00728CFE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		AE719290188741C600728CFE /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		AE719291188741C600728CFE /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		AE7741E71887B277002A0E96 /* PersonalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDetailViewController.h; sourceTree = "<group>"; };
+		AE7741E81887B277002A0E96 /* PersonalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDetailViewController.m; sourceTree = "<group>"; };
 		AE8730B11881D62D00D5A9C8 /* PostsNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsNearMeViewController.h; sourceTree = "<group>"; };
 		AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsNearMeViewController.m; sourceTree = "<group>"; };
 		AE8730B5188225D900D5A9C8 /* CDPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPosts.h; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				AE8C4EA81876039300F23661 /* WelcomeViewController.m */,
 				AE8C4EA91876039300F23661 /* SignUpViewController.h */,
 				AE8C4EAA1876039300F23661 /* SignUpViewController.m */,
+				AE7741E71887B277002A0E96 /* PersonalDetailViewController.h */,
+				AE7741E81887B277002A0E96 /* PersonalDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -738,6 +743,7 @@
 				AEFBD3F11883C94A00548EF7 /* AFSecurityPolicy.m in Sources */,
 				AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */,
 				AEFBD3F51883C94A00548EF7 /* AFURLSessionManager.m in Sources */,
+				AE7741E91887B277002A0E96 /* PersonalDetailViewController.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
 				AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,

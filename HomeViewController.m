@@ -15,6 +15,7 @@
 #import "VPImageCropperViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "PersonalDetailViewController.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -465,6 +466,18 @@
         }
     }];
     return result;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showPersonalDetail"])
+    {
+        PersonalDetailViewController *destVC = segue.destinationViewController;
+        destVC.avatar = UserImage.image;
+        destVC.userEmail = [PFUser currentUser].email;
+        destVC.userName = [[PFUser currentUser] username];
+        destVC.hidesBottomBarWhenPushed = YES;
+    }
 }
 
 
