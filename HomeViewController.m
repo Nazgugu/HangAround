@@ -16,10 +16,12 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "PersonalDetailViewController.h"
+#import "NZAlertView.h"
+#import "NZAlertViewDelegate.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
-@interface HomeViewController ()<UIViewControllerTransitioningDelegate, VPImageCropperDelegate, UIAlertViewDelegate>
+@interface HomeViewController ()<UIViewControllerTransitioningDelegate, VPImageCropperDelegate, UIAlertViewDelegate,NZAlertViewDelegate>
 {
     BOOL isFullScreen;
     dispatch_queue_t queue;
@@ -37,6 +39,22 @@
     }
     return self;
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return !YES;
+}
+
 
 - (void)viewDidLoad
 {
@@ -100,7 +118,6 @@
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     [self resizeImage:editedImage];
     //isFullScreen = NO;
-    [UserImage setImage:[Singleton globalData].avatar];
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
             isFullScreen = NO;
     }];
@@ -218,13 +235,10 @@
     //upload to database
     NSString *userImageFileName = [NSString stringWithFormat:@"%@_UserProfile.jpeg",[[PFUser currentUser] username]];
     PFFile *imageFile = [PFFile fileWithName:userImageFileName data:imageData];
-    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-        if (!error)
-        {
-            PFUser *user = [PFUser currentUser];
-            PFQuery *photoQuery = [PFQuery queryWithClassName:@"UserPhoto"];
-            [photoQuery whereKey:@"user" equalTo:user];
-            [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+    PFUser *user = [PFUser currentUser];
+    PFQuery *photoQuery = [PFQuery queryWithClassName:@"UserPhoto"];
+    [photoQuery whereKey:@"user" equalTo:user];
+    [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
                if (!error)
                {
                    if ([objects count] > 0)
@@ -235,9 +249,21 @@
                            if (!error){
                                object[@"imageFile"] = imageFile;
                                [object saveInBackground];
-                               UIAlertView *imageUpdate = [[UIAlertView alloc] initWithTitle:@"Grats" message:@"Successfully updated your avatar" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
-                               [imageUpdate show];
-                               NSLog(@"Can you see me?");
+                               NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Grats" message:@"Successfully updated avatar" delegate:self];
+                               [alert showWithCompletion:^{
+                                   [UserImage setImage:[Singleton globalData].avatar];
+                                   [self imageAnimation];
+                               }];
+                                NSLog(@"Can you see me?");
+                           }
+                           else
+                           {
+                               NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Sorry" message:@"Update image failed" delegate:self];
+                               [alert show];
+                               object[@"imageFile"] = imageFile;
+                               [object saveEventually];
+                               [UserImage setImage:[Singleton globalData].avatar];
+                               [self imageAnimation];
                            }
                        }];
                    }
@@ -247,18 +273,25 @@
                        PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
                        [userPhoto setObject:imageFile forKey:@"imageFile"];
                        [userPhoto setObject:user forKey:@"user"];
-                       [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                          if (!error)
+                       BOOL succeed = [userPhoto save];
+                          if (succeed)
                           {
                               //upload succeed
-                              UIAlertView *firstTimeUpLoad = [[UIAlertView alloc] initWithTitle:@"Grats" message:@"Successfully uploaded first photo" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
-                              [firstTimeUpLoad show];
+                              NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Grats" message:@"Successfully uploaded avatar" delegate:self];
+                              [alert showWithCompletion:^{
+                                  [UserImage setImage:[Singleton globalData].avatar];
+                                  [self imageAnimation];
+                              }];
                           }
                            else
                            {
+                               NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Sorry" message:@"Failed to upload image" delegate:self];
+                               [alert show];
                                NSLog(@"uploading error: %@, %@", error, [error userInfo]);
+                               [userPhoto saveEventually];
+                               [UserImage setImage:[Singleton globalData].avatar];
+                               [self imageAnimation];
                            }
-                       }];
                    }
                }
                 else
@@ -267,14 +300,19 @@
                 }
             }];
             
-        }
-        else
-        {
-            NSLog(@"so damn: %@ %@", error, [error userInfo]);
-        }
-        
-    }];
 }
+
+- (void)imageAnimation
+{
+    CATransition *transition = [CATransition animation];
+    
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    transition.duration = 1.5f;
+    transition.type = @"rippleEffect";
+    
+    [[UserImage layer] addAnimation:transition forKey:@"rippleEffect"];
+}
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

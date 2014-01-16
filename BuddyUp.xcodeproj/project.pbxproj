@@ -66,6 +66,14 @@
 		AE9CC84C1878BC4A00A6E61D /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84B1878BC4A00A6E61D /* UIImage+RoundedCorner.m */; };
 		AE9CC84F1878BC7000A6E61D /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */; };
 		AE9CC8521879389500A6E61D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9CC8511879389500A6E61D /* PostViewController.m */; };
+		AEEC216D1888853C00D1E234 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEC216C1888853C00D1E234 /* Accelerate.framework */; };
+		AEEC2175188885AE00D1E234 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC216F188885AE00D1E234 /* UIImage+Blur.m */; };
+		AEEC2176188885AE00D1E234 /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC2171188885AE00D1E234 /* UIImage+ImageWithColor.m */; };
+		AEEC2177188885AE00D1E234 /* UIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC2173188885AE00D1E234 /* UIImage+Screenshot.m */; };
+		AEEC217C188885D800D1E234 /* NZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC217A188885D800D1E234 /* NZAlertView.m */; };
+		AEEC217D188885D800D1E234 /* NZAlertView-Icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEEC217B188885D800D1E234 /* NZAlertView-Icons.bundle */; };
+		AEEC2180188885ED00D1E234 /* UIColor+StyleColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC217F188885ED00D1E234 /* UIColor+StyleColor.m */; };
+		AEEC21831888860800D1E234 /* NZAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEC21821888860800D1E234 /* NZAlertView.xib */; };
 		AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150DC1884B9EC00334A15 /* Singleton.m */; };
 		AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E31885B5AF00334A15 /* DetailPostViewController.m */; };
 		AEF150E8188603C200334A15 /* CDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF150E7188603C200334A15 /* CDAnnotation.m */; };
@@ -195,6 +203,21 @@
 		AE9CC84E1878BC7000A6E61D /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		AE9CC8501879389500A6E61D /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		AE9CC8511879389500A6E61D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		AEEC216C1888853C00D1E234 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		AEEC216E188885AE00D1E234 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
+		AEEC216F188885AE00D1E234 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
+		AEEC2170188885AE00D1E234 /* UIImage+ImageWithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithColor.h"; sourceTree = "<group>"; };
+		AEEC2171188885AE00D1E234 /* UIImage+ImageWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithColor.m"; sourceTree = "<group>"; };
+		AEEC2172188885AE00D1E234 /* UIImage+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Screenshot.h"; sourceTree = "<group>"; };
+		AEEC2173188885AE00D1E234 /* UIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Screenshot.m"; sourceTree = "<group>"; };
+		AEEC2174188885AE00D1E234 /* UIImage-Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Helpers.h"; sourceTree = "<group>"; };
+		AEEC2179188885D800D1E234 /* NZAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZAlertView.h; sourceTree = "<group>"; };
+		AEEC217A188885D800D1E234 /* NZAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZAlertView.m; sourceTree = "<group>"; };
+		AEEC217B188885D800D1E234 /* NZAlertView-Icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "NZAlertView-Icons.bundle"; sourceTree = "<group>"; };
+		AEEC217E188885ED00D1E234 /* UIColor+StyleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+StyleColor.h"; sourceTree = "<group>"; };
+		AEEC217F188885ED00D1E234 /* UIColor+StyleColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+StyleColor.m"; sourceTree = "<group>"; };
+		AEEC21811888860200D1E234 /* NZAlertViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NZAlertViewDelegate.h; sourceTree = "<group>"; };
+		AEEC21821888860800D1E234 /* NZAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NZAlertView.xib; sourceTree = "<group>"; };
 		AEF150DB1884B9EC00334A15 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		AEF150DC1884B9EC00334A15 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AEF150E21885B5AF00334A15 /* DetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPostViewController.h; sourceTree = "<group>"; };
@@ -246,6 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEC216D1888853C00D1E234 /* Accelerate.framework in Frameworks */,
 				AE71928D188740BD00728CFE /* CoreTelephony.framework in Frameworks */,
 				AE71928B188740AC00728CFE /* libicucore.dylib in Frameworks */,
 				AE7192891887409700728CFE /* CoreData.framework in Frameworks */,
@@ -378,6 +402,7 @@
 		AE8C4E6F187602DB00F23661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEEC216C1888853C00D1E234 /* Accelerate.framework */,
 				AE71928C188740BD00728CFE /* CoreTelephony.framework */,
 				AE71928A188740AC00728CFE /* libicucore.dylib */,
 				AE7192881887409700728CFE /* CoreData.framework */,
@@ -464,6 +489,8 @@
 		AE9CC8031876123200A6E61D /* Animation&Appearence&Function */ = {
 			isa = PBXGroup;
 			children = (
+				AEEC2178188885B400D1E234 /* AlertView */,
+				AEEC216B188884FE00D1E234 /* ImageBlur */,
 				AE8730B81882303400D5A9C8 /* TableView */,
 				AE1E9AE3187BD0360021E629 /* Segmented Control */,
 				AE1E9ADF187B3FF10021E629 /* DayPicker */,
@@ -559,6 +586,34 @@
 				AE9CC8481878BABE00A6E61D /* UIImage+Resize.m */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		AEEC216B188884FE00D1E234 /* ImageBlur */ = {
+			isa = PBXGroup;
+			children = (
+				AEEC216E188885AE00D1E234 /* UIImage+Blur.h */,
+				AEEC216F188885AE00D1E234 /* UIImage+Blur.m */,
+				AEEC2170188885AE00D1E234 /* UIImage+ImageWithColor.h */,
+				AEEC2171188885AE00D1E234 /* UIImage+ImageWithColor.m */,
+				AEEC2172188885AE00D1E234 /* UIImage+Screenshot.h */,
+				AEEC2173188885AE00D1E234 /* UIImage+Screenshot.m */,
+				AEEC2174188885AE00D1E234 /* UIImage-Helpers.h */,
+			);
+			name = ImageBlur;
+			sourceTree = "<group>";
+		};
+		AEEC2178188885B400D1E234 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				AEEC21821888860800D1E234 /* NZAlertView.xib */,
+				AEEC21811888860200D1E234 /* NZAlertViewDelegate.h */,
+				AEEC217E188885ED00D1E234 /* UIColor+StyleColor.h */,
+				AEEC217F188885ED00D1E234 /* UIColor+StyleColor.m */,
+				AEEC2179188885D800D1E234 /* NZAlertView.h */,
+				AEEC217A188885D800D1E234 /* NZAlertView.m */,
+				AEEC217B188885D800D1E234 /* NZAlertView-Icons.bundle */,
+			);
+			name = AlertView;
 			sourceTree = "<group>";
 		};
 		AEFBD3D91883C92100548EF7 /* AFNetworking */ = {
@@ -686,8 +741,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEC217D188885D800D1E234 /* NZAlertView-Icons.bundle in Resources */,
 				AE8C4E89187602DB00F23661 /* Images.xcassets in Resources */,
 				AE8C4E7B187602DB00F23661 /* InfoPlist.strings in Resources */,
+				AEEC21831888860800D1E234 /* NZAlertView.xib in Resources */,
 				AE9CC83F1877641D00A6E61D /* TGRImageViewController.xib in Resources */,
 				AE8C4E84187602DB00F23661 /* Main.storyboard in Resources */,
 			);
@@ -708,7 +765,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEC2176188885AE00D1E234 /* UIImage+ImageWithColor.m in Sources */,
+				AEEC2177188885AE00D1E234 /* UIImage+Screenshot.m in Sources */,
 				AE9CC80F1876124F00A6E61D /* MZAppearance.m in Sources */,
+				AEEC2180188885ED00D1E234 /* UIColor+StyleColor.m in Sources */,
 				AE8C4EAC1876039300F23661 /* WelcomeViewController.m in Sources */,
 				AE9CC81E1876480E00A6E61D /* MHTextField.m in Sources */,
 				AE8C4EAB1876039300F23661 /* LoginViewController.m in Sources */,
@@ -737,6 +797,7 @@
 				AE719292188741C600728CFE /* ChatViewController.m in Sources */,
 				AEFBD40F1883C9F700548EF7 /* NearByPlaceTableViewController.m in Sources */,
 				AE8C4E7D187602DB00F23661 /* main.m in Sources */,
+				AEEC217C188885D800D1E234 /* NZAlertView.m in Sources */,
 				AE9CC83E1877641D00A6E61D /* TGRImageViewController.m in Sources */,
 				AE8730C318825C1600D5A9C8 /* ActivityViewController.m in Sources */,
 				AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */,
@@ -744,6 +805,7 @@
 				AEF150E41885B5AF00334A15 /* DetailPostViewController.m in Sources */,
 				AEFBD3F51883C94A00548EF7 /* AFURLSessionManager.m in Sources */,
 				AE7741E91887B277002A0E96 /* PersonalDetailViewController.m in Sources */,
+				AEEC2175188885AE00D1E234 /* UIImage+Blur.m in Sources */,
 				AE8C4E81187602DB00F23661 /* CDAppDelegate.m in Sources */,
 				AEFBD3EE1883C94A00548EF7 /* AFHTTPRequestOperationManager.m in Sources */,
 				AE9CC80E1876124F00A6E61D /* BlurryModalSegue.m in Sources */,
