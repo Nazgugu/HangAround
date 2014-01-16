@@ -339,7 +339,7 @@
         [alert show];
         return;
     }
-    if (!dateSelection.text)
+    if ([dateSelection.text isEqualToString:@""])
     {
         NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleInfo title:@"Missing Info" message:@"Please select the time" delegate:self];
         [alert show];
