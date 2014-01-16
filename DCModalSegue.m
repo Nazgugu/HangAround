@@ -129,6 +129,7 @@
 - (void)perform {
     DCModalViewController* modalVC = [[DCModalViewController alloc] init];
     modalVC.edgesForExtendedLayout = UIRectEdgeAll;
+    modalVC.extendedLayoutIncludesOpaqueBars = YES;
     modalVC.screenshot = [self screenshot];
     modalVC.destinationController = self.destinationViewController;
     modalVC.sourceController = self.sourceViewController;

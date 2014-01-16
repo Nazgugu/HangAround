@@ -282,7 +282,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateSelection" destination="Keg-Ky-NA4" id="riT-jY-CU3"/>
                         <outlet property="keyBoardAvoidingScrollView" destination="Vgd-mH-MxO" id="VfO-l5-Jgs"/>
@@ -744,7 +743,7 @@
         <!--Navigation Controller-->
         <scene sceneID="RLU-7R-VTc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVK-YA-Aii" sceneMemberID="viewController">
+                <navigationController id="JVK-YA-Aii" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qwv-AQ-rVB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

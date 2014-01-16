@@ -181,7 +181,7 @@ static BOOL IsPresenting;
     }
     
     UIApplication *application = [UIApplication sharedApplication];
-    
+
     CGRect frame = self.frame;
     frame.origin.y = -([self originY] + CGRectGetHeight(self.view.frame));
     self.frame = frame;
@@ -193,7 +193,7 @@ static BOOL IsPresenting;
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
     
-    int index = [[application keyWindow].subviews count];
+    int index = (int)[[application keyWindow].subviews count];
     
     if (!application.statusBarHidden) {
         frame = self.statusBarView.frame;
@@ -252,12 +252,13 @@ static BOOL IsPresenting;
 
 - (CGRect)frameForLabel:(UILabel *)label
 {
-    CGFloat height = [label.text sizeWithFont:label.font
+    /*CGFloat height = [label.text sizeWithFont:label.font
                             constrainedToSize:CGSizeMake(CGRectGetWidth(label.frame), 9999)
-                                lineBreakMode:NSLineBreakByTruncatingTail].height;
-    
+                                lineBreakMode:NSLineBreakByTruncatingTail].height;*/
+    CGRect textRect = [label.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(label.frame), 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
+                                                                                                                                                            
     CGRect frame = label.frame;
-    frame.size.height = height;
+    frame.size.height = textRect.size.height;
     
     return frame;
 }
