@@ -22,12 +22,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *typeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailPost;
 @property (strong, nonatomic) IBOutlet UILabel *userName;
+@property (strong, nonatomic) IBOutlet UILabel *time;
 - (IBAction)chatButton:(id)sender;
 @end
 
 @implementation DetailPostViewController
 
-@synthesize addressLabel, myMap, typeLabel, detailPost, userName;
+@synthesize addressLabel, myMap, typeLabel, detailPost, userName,time;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,6 +64,7 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(self.latitude, self.longtitude), 5000, 5000);
     [myMap setRegion:region animated:YES];
     [myMap setShowsUserLocation:YES];
+    [time setText:self.actTime];
     // Do any additional setup after loading the view.
     //annotation
     CDAnnotation *annotation;

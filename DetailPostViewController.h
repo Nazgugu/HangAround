@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSString *storeName;
 @property (strong, nonatomic) UIImage *storeImage;
 @property (strong, nonatomic) NSString *Name;
+@property (strong, nonatomic) NSString *actTime;
 @end

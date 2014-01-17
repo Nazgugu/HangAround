@@ -254,6 +254,7 @@
             detailPostVC.longtitude = selectedCell.detailPost.longtitude;
             detailPostVC.storeName = selectedCell.detailPost.storeName;
             detailPostVC.Name = selectedCell.detailPost.user;
+            detailPostVC.actTime = selectedCell.detailPost.time;
         }
     }
 }

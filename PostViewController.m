@@ -21,7 +21,6 @@
 #import "NearByPlaceTableViewController.h"
 #import "CDPosts.h"
 #import "Singleton.h"
-#import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "NZAlertView.h"
 #import "NZAlertViewDelegate.h"

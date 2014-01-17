@@ -94,6 +94,7 @@
                       {
                           UIImage *image = [UIImage imageWithData:data];
                           [UserImage setImage:image];
+                          [self imageAnimation];
                       }];
                  }
                  else
@@ -101,6 +102,8 @@
                      NSLog(@"Error : %@ %@", error, [error userInfo]);
                      dispatch_async(dispatch_get_main_queue(), ^{
                      [UserImage setImage:[UIImage imageNamed:@"default_profile_4"]];
+                    [self imageAnimation];
+
                      });
                  }
              }

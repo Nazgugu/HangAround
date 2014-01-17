@@ -9,11 +9,11 @@
 
 // Private helper methods
 @interface UIImage ()
-- (UIImage *)resizedImage:(CGSize)newSize
+/*- (UIImage *)resizedImage:(CGSize)newSize
                 transform:(CGAffineTransform)transform
            drawTransposed:(BOOL)transpose
      interpolationQuality:(CGInterpolationQuality)quality;
-- (CGAffineTransform)transformForOrientation:(CGSize)newSize;
+- (CGAffineTransform)transformForOrientation:(CGSize)newSize;*/
 @end
 
 @implementation UIImage (Resize)
