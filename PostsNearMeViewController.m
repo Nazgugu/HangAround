@@ -10,12 +10,12 @@
 #import "PostsNearMeViewController.h"
 #import <MapKit/MapKit.h>
 #import "UITableView+Frames.h"
-#import "CDCustomCell.h"
 #import "CDPosts.h"
 #import "CDAppDelegate.h"
 #import "DetailPostViewController.h"
+#import "XHFeedCell3.h"
 
-@interface PostsNearMeViewController ()<CLLocationManagerDelegate, UITableViewDataSource>
+@interface PostsNearMeViewController ()<CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     CLLocationManager *locationManager;
 }
@@ -53,6 +53,9 @@
 {
     [super viewDidLoad];
     NSLog(@"Can you see me 1?");
+    self.title = @"Posts Near Me";
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.9 alpha:0.6];
+    self.tableView.delegate = self;
     // Do any additional setup after loading the view.
     if (NSClassFromString(@"UIRefreshControl"))
     {
@@ -69,6 +72,10 @@
     [locationManager startUpdatingLocation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDidChange:) name:kPAWLocationChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWasCreated:) name:kPAWPostCreatedNotification object:nil];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return isIpad ? 250 : 125;
 }
 
 - (void)objectsDidLoad:(NSError *)error
@@ -111,16 +118,62 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    CDCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell"];
+    XHFeedCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell"];
     if (!cell)
     {
-        cell = [[CDCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCell"];
+        cell = [[XHFeedCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCell"];
     }
     NSString *userName = [NSString stringWithFormat:@"%@",[[object objectForKey:kPAWParseUserKey] objectForKey:kPAWParseUsernameKey]];
     NSString *text = [object objectForKey:kPAWParseTextKey];
-    cell.Title.text = text;
-    cell.UserName.text = userName;
-    [cell.AvatarImage setImage:[UIImage imageNamed:@"default_profile_4"]];
+    UIColor* mainColor = [UIColor colorWithRed:28.0/255 green:158.0/255 blue:121.0/255 alpha:1.0f];
+    UIColor* neutralColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+    
+    UIColor* mainColorLight = [UIColor colorWithRed:28.0/255 green:158.0/255 blue:121.0/255 alpha:0.4f];
+    UIColor* lightColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+    
+    NSString* fontName = @"Avenir-Book";
+    NSString* boldItalicFontName = @"Avenir-BlackOblique";
+    NSString* boldFontName = @"Avenir-Black";
+    
+    
+    cell.profileImageView.layer.cornerRadius = 10.0f;
+    [cell.profileImageView.layer setMasksToBounds:YES];
+    
+    UIFont *nameLabelFont = [UIFont fontWithName:boldFontName size:(isIpad ? 35.0f : 17.0f)];
+    
+    //nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    cell.nameLabel.textColor =  mainColor;
+    cell.nameLabel.font = nameLabelFont;
+    
+    UIFont *updateLabelFont = [UIFont fontWithName:fontName size:(isIpad ? 26.0f : 13.0f)];
+    //updateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    cell.updateLabel.numberOfLines = 0;
+    cell.updateLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    cell.updateLabel.textColor =  neutralColor;
+    cell.updateLabel.font = updateLabelFont;
+    
+    UIFont *dateLabelFont = [UIFont fontWithName:fontName size:(isIpad ? 24.0f : 12.0f)];
+    //dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    cell.dateLabel.textAlignment = NSTextAlignmentRight;
+    cell.dateLabel.textColor = lightColor;
+    cell.dateLabel.font =  dateLabelFont;
+    
+    UIFont *countLabelFont = [UIFont fontWithName:boldItalicFontName size:(isIpad ? 20.0f : 10.0f)];
+    //commentCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    cell.commentCountLabel.textColor = mainColorLight;
+    cell.commentCountLabel.font = countLabelFont;
+    
+    //likeCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    cell.likeCountLabel.textColor = mainColorLight;
+    cell.likeCountLabel.font = countLabelFont;
+
+    cell.updateLabel.text = text;
+    cell.nameLabel.text = userName;
+    cell.dateLabel.text = @"1 hr ago";
+    cell.likeCountLabel.text = @"293 likes";
+    cell.commentCountLabel.text = @"555K comments";
+    [cell.profileImageView setImage:[UIImage imageNamed:@"default_profile_4"]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     //get the avartar from web
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
@@ -142,7 +195,7 @@
                          PFFile *imageFile = [avatar objectForKey:@"imageFile"];
                          [imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error)
                           {
-                              [cell.AvatarImage setImage:[UIImage imageWithData:imageData]];
+                              [cell.profileImageView setImage:[UIImage imageWithData:imageData]];
                           }];
                      }
                   }];
@@ -186,11 +239,12 @@
 - (void)tableview:(UITableView *)tableView didSelectRowAtIndexPath:
     (NSIndexPath *)indexPath
 {
+    NSLog(@"did select %ld",(long)indexPath.row);
     id detailvc = [self.splitViewController.viewControllers lastObject];
     if ([detailvc isKindOfClass:[UINavigationController class]])
     {
         detailvc = [((UINavigationController *)detailvc).viewControllers firstObject];
-        [self prepareViewController:detailvc forSegue:nil fromIndexPath:indexPath];
+        [self prepareViewController:detailvc forSegue:@"detailPost" fromIndexPath:indexPath];
     }
 }
 
@@ -235,7 +289,7 @@
     {
         indexPath = [self.tableView indexPathForCell:sender];
     }
-    [self prepareViewController:segue.destinationViewController forSegue:segue.identifier fromIndexPath:indexPath];
+    [self prepareViewController:segue.destinationViewController forSegue:@"detailPost" fromIndexPath:indexPath];
 }
 
 - (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath
@@ -243,9 +297,9 @@
     if ([vc isKindOfClass:[DetailPostViewController class]])
     {
         DetailPostViewController *detailPostVC = (DetailPostViewController *)vc;
-        if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[CDCustomCell class]])
+        if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XHFeedCell3 class]])
         {
-            CDCustomCell *selectedCell = (CDCustomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            XHFeedCell3 *selectedCell = (XHFeedCell3 *)[self.tableView cellForRowAtIndexPath:indexPath];
             NSLog(@"%@\n%@\n%@\n%@\n%@\n%f\n%f\n",selectedCell.detailPost.text,selectedCell.detailPost.user,selectedCell.detailPost.type,selectedCell.detailPost.addName,selectedCell.detailPost.storeName,selectedCell.detailPost.latitude,selectedCell.detailPost.longtitude);
             detailPostVC.postText = selectedCell.detailPost.text;
             detailPostVC.type = selectedCell.detailPost.type;

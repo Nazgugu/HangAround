@@ -19,7 +19,6 @@
 		AE8730B31881D62D00D5A9C8 /* PostsNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B21881D62D00D5A9C8 /* PostsNearMeViewController.m */; };
 		AE8730B7188225D900D5A9C8 /* CDPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730B6188225D900D5A9C8 /* CDPosts.m */; };
 		AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */; };
-		AE8730BE1882336D00D5A9C8 /* CDCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */; };
 		AE8730C318825C1600D5A9C8 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8730C218825C1600D5A9C8 /* ActivityViewController.m */; };
 		AE8C4E71187602DB00F23661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E70187602DB00F23661 /* Foundation.framework */; };
 		AE8C4E73187602DB00F23661 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8C4E72187602DB00F23661 /* CoreGraphics.framework */; };
@@ -82,6 +81,7 @@
 		AEC70DC71889200900EE1C27 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC70DBD1889200900EE1C27 /* UIImageView+AFNetworking.m */; };
 		AEC70DC81889200900EE1C27 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC70DC01889200900EE1C27 /* UIProgressView+AFNetworking.m */; };
 		AEC70DC91889200900EE1C27 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC70DC21889200900EE1C27 /* UIWebView+AFNetworking.m */; };
+		AED9B5A8189D91110080A214 /* XHFeedCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9B5A7189D91110080A214 /* XHFeedCell3.m */; };
 		AEEC216D1888853C00D1E234 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEC216C1888853C00D1E234 /* Accelerate.framework */; };
 		AEEC2175188885AE00D1E234 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC216F188885AE00D1E234 /* UIImage+Blur.m */; };
 		AEEC2176188885AE00D1E234 /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC2171188885AE00D1E234 /* UIImage+ImageWithColor.m */; };
@@ -130,8 +130,6 @@
 		AE8730B6188225D900D5A9C8 /* CDPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPosts.m; sourceTree = "<group>"; };
 		AE8730B91882304100D5A9C8 /* UITableView+Frames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Frames.h"; sourceTree = "<group>"; };
 		AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Frames.m"; sourceTree = "<group>"; };
-		AE8730BC1882336D00D5A9C8 /* CDCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCustomCell.h; sourceTree = "<group>"; };
-		AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCustomCell.m; sourceTree = "<group>"; };
 		AE8730C118825C1600D5A9C8 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		AE8730C218825C1600D5A9C8 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		AE8C4E6D187602DB00F23661 /* BuddyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +236,8 @@
 		AEC70DC01889200900EE1C27 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		AEC70DC11889200900EE1C27 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		AEC70DC21889200900EE1C27 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		AED9B5A6189D91110080A214 /* XHFeedCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHFeedCell3.h; sourceTree = "<group>"; };
+		AED9B5A7189D91110080A214 /* XHFeedCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHFeedCell3.m; sourceTree = "<group>"; };
 		AEEC216C1888853C00D1E234 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AEEC216E188885AE00D1E234 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
 		AEEC216F188885AE00D1E234 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
@@ -342,10 +342,10 @@
 		AE8730B81882303400D5A9C8 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				AED9B5A6189D91110080A214 /* XHFeedCell3.h */,
+				AED9B5A7189D91110080A214 /* XHFeedCell3.m */,
 				AE8730B91882304100D5A9C8 /* UITableView+Frames.h */,
 				AE8730BA1882304100D5A9C8 /* UITableView+Frames.m */,
-				AE8730BC1882336D00D5A9C8 /* CDCustomCell.h */,
-				AE8730BD1882336D00D5A9C8 /* CDCustomCell.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -781,6 +781,7 @@
 				AEC70DC31889200900EE1C27 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				AEEC2176188885AE00D1E234 /* UIImage+ImageWithColor.m in Sources */,
 				AEEC2177188885AE00D1E234 /* UIImage+Screenshot.m in Sources */,
+				AED9B5A8189D91110080A214 /* XHFeedCell3.m in Sources */,
 				AE9CC80F1876124F00A6E61D /* MZAppearance.m in Sources */,
 				AEC70DC51889200900EE1C27 /* UIAlertView+AFNetworking.m in Sources */,
 				AEEC2180188885ED00D1E234 /* UIColor+StyleColor.m in Sources */,
@@ -792,7 +793,6 @@
 				AE1E9AE6187BD09D0021E629 /* HMSegmentedControl.m in Sources */,
 				AE8730BB1882304100D5A9C8 /* UITableView+Frames.m in Sources */,
 				AEF150DD1884B9EC00334A15 /* Singleton.m in Sources */,
-				AE8730BE1882336D00D5A9C8 /* CDCustomCell.m in Sources */,
 				AE1E9AE2187B3FFD0021E629 /* RMDateSelectionViewController.m in Sources */,
 				AEC70DAD18891FFC00EE1C27 /* AFHTTPSessionManager.m in Sources */,
 				AE9CC8521879389500A6E61D /* PostViewController.m in Sources */,
