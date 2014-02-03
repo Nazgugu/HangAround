@@ -41,6 +41,7 @@ typedef void(^NZAlertViewCompletion)(void);
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, readonly, getter = isVisible) BOOL visible;
 @property (nonatomic, copy) UIColor *statusBarColor;
+@property (nonatomic) NSTextAlignment textAlignment;
 
 - (id)initWithStyle:(NZAlertStyle)style
             message:(NSString *)message;

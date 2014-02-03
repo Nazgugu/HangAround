@@ -1,9 +1,9 @@
 //
-//  NZAlertViewDelegate.h
+//  NZAlertViewColor.h
 //  NZAlertView
 //
-//  Created by Bruno Furtado on 18/12/13.
-//  Copyright (c) 2013 No Zebra Network. All rights reserved.
+//  Created by Bruno Furtado on 21/01/14.
+//  Copyright (c) 2014 No Zebra Network. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +23,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "NZAlertView.h"
+#import <UIKit/UIKit.h>
 
-@protocol NZAlertViewDelegate <NSObject>
+@interface NZAlertViewColor : UIColor
 
-@optional
-
-- (void)willPresentNZAlertView:(NZAlertView *)alertView;
-- (void)didPresentNZAlertView:(NZAlertView *)alertView;
-
-- (void)NZAlertViewWillDismiss:(NZAlertView *)alertView;
-- (void)NZAlertViewDidDismiss:(NZAlertView *)alertView;
++ (UIColor *)errorColor;
++ (UIColor *)infoColor;
++ (UIColor *)successColor;
 
 @end

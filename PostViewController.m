@@ -346,6 +346,7 @@
     }
     //prepare data
     
+    NSString *numLikes = @"0";
     PFUser *user = [PFUser currentUser];
     PFGeoPoint *currentPoint = [PFGeoPoint geoPointWithLatitude:self.latitude longitude:self.longtitude];
     //wrap up all the posting components into a postObject and send this async to Parse
@@ -355,6 +356,7 @@
     [postObject setObject:dateSelection.text forKey:kPAWParseTimeKey];
     [postObject setObject:user forKey:kPAWParseUserKey];
     [postObject setObject:currentPoint forKey:kPAWParseLocationKey];
+    [postObject setObject:numLikes forKey:kPAWParseLikeKey];
     if ([locationText.text hasPrefix:@"Lat"])
     {
         [postObject setObject:@"" forKey:kPAWParseLocationNameKey];
@@ -382,9 +384,10 @@
 			});
         }
         }];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess title:@"Cheers" message:@"Post succeed" delegate:self];
     [alert show];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)getAddressWithCurrentLocation:(CLLocationCoordinate2D)coordinate

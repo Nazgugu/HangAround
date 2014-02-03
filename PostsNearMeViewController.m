@@ -125,6 +125,7 @@
     }
     NSString *userName = [NSString stringWithFormat:@"%@",[[object objectForKey:kPAWParseUserKey] objectForKey:kPAWParseUsernameKey]];
     NSString *text = [object objectForKey:kPAWParseTextKey];
+    NSString *numLikes = [object objectForKey:kPAWParseLikeKey];
     UIColor* mainColor = [UIColor colorWithRed:28.0/255 green:158.0/255 blue:121.0/255 alpha:1.0f];
     UIColor* neutralColor = [UIColor colorWithWhite:0.4 alpha:1.0];
     
@@ -170,7 +171,7 @@
     cell.updateLabel.text = text;
     cell.nameLabel.text = userName;
     cell.dateLabel.text = @"1 hr ago";
-    cell.likeCountLabel.text = @"293 likes";
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%@ likes",numLikes];
     cell.commentCountLabel.text = @"555K comments";
     [cell.profileImageView setImage:[UIImage imageNamed:@"default_profile_4"]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -244,7 +245,7 @@
     if ([detailvc isKindOfClass:[UINavigationController class]])
     {
         detailvc = [((UINavigationController *)detailvc).viewControllers firstObject];
-        [self prepareViewController:detailvc forSegue:@"detailPost" fromIndexPath:indexPath];
+        [self prepareViewController:detailvc forSegue:nil fromIndexPath:indexPath];
     }
 }
 

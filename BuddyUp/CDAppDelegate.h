@@ -18,6 +18,7 @@ static NSString * const kPAWParseTimeKey = @"time";
 static NSString * const kPAWParseTypeKey = @"category";
 static NSString * const kPAWParseLocationNameKey = @"locName";
 static NSString * const kPAWParseLocationAddressKey = @"addName";
+static NSString * const kPAWParseLikeKey = @"like";
 
 // NSNotification userInfo keys:
 static NSString * const kPAWFilterDistanceKey = @"filterDistance";

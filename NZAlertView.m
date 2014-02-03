@@ -8,12 +8,12 @@
 
 #import "NZAlertView.h"
 #import "NZAlertViewDelegate.h"
-#import "UIColor+StyleColor.h"
+#import "NZAlertViewColor.h"
 #import "UIImage+Blur.h"
 #import "UIImage+Screenshot.h"
 
 static float const kAlertDuration = 0.5f;
-static float const kAnimateDuration = .5f;
+static float const kAnimateDuration = .3f;
 static float const kBlurParameter = .6f;
 static BOOL IsPresenting;
 
@@ -130,17 +130,17 @@ static BOOL IsPresenting;
     switch (alertViewStyle) {
         case NZAlertStyleError:
             path = [path stringByAppendingString:@"AlertViewErrorIcon"];
-            color = [UIColor errorColor];
+            color = [NZAlertViewColor errorColor];
             break;
             
         case NZAlertStyleInfo:
             path = [path stringByAppendingString:@"AlertViewInfoIcon"];
-            color = [UIColor infoColor];
+            color = [NZAlertViewColor infoColor];
             break;
             
         case NZAlertStyleSuccess:
             path = [path stringByAppendingString:@"AlertViewSucessIcon"];
-            color = [UIColor successColor];
+            color = [NZAlertViewColor successColor];
             break;
     }
     
@@ -152,6 +152,14 @@ static BOOL IsPresenting;
 - (void)setStatusBarColor:(UIColor *)statusBarColor
 {
     self.statusBarView.backgroundColor = statusBarColor;
+}
+
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+    _textAlignment = textAlignment;
+    
+    self.lbTitle.textAlignment = textAlignment;
+    self.lbMessage.textAlignment = textAlignment;
 }
 
 - (void)show
@@ -181,7 +189,7 @@ static BOOL IsPresenting;
     }
     
     UIApplication *application = [UIApplication sharedApplication];
-
+    
     CGRect frame = self.frame;
     frame.origin.y = -([self originY] + CGRectGetHeight(self.view.frame));
     self.frame = frame;
@@ -193,7 +201,7 @@ static BOOL IsPresenting;
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
     
-    int index = (int)[[application keyWindow].subviews count];
+    NSInteger index = [[application keyWindow].subviews count];
     
     if (!application.statusBarHidden) {
         frame = self.statusBarView.frame;
@@ -252,13 +260,12 @@ static BOOL IsPresenting;
 
 - (CGRect)frameForLabel:(UILabel *)label
 {
-    /*CGFloat height = [label.text sizeWithFont:label.font
+    CGFloat height = [label.text sizeWithFont:label.font
                             constrainedToSize:CGSizeMake(CGRectGetWidth(label.frame), 9999)
-                                lineBreakMode:NSLineBreakByTruncatingTail].height;*/
-    CGRect textRect = [label.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(label.frame), 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
-                                                                                                                                                            
+                                lineBreakMode:NSLineBreakByTruncatingTail].height;
+    
     CGRect frame = label.frame;
-    frame.size.height = textRect.size.height;
+    frame.size.height = height;
     
     return frame;
 }
