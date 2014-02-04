@@ -1,9 +1,147 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kdr-R4-bDv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jfu-Dr-Rpp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Tutorial Controller-->
+        <scene sceneID="yqs-Dr-dlM">
+            <objects>
+                <viewController id="Jfu-Dr-Rpp" customClass="ICETutorialController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DCL-2v-KgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="QG2-XW-jhN"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TeX-E8-dCT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-uw-NIW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTB-Uf-EAG">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="background-gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="UiH-kk-ZNJ">
+                                <rect key="frame" x="0.0" y="348" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXo-p2-9Ow">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Jfu-Dr-Rpp" id="pGs-Wh-3IL"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg1-g3-M4j" customClass="SignUp">
+                                <rect key="frame" x="20" y="494" width="130" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Ami-dc-0hv"/>
+                                    <constraint firstAttribute="width" constant="130" id="uC6-SP-5as"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SignUp" backgroundImage="button-background.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3h3-2k-OJd" kind="custom" customClass="BlurryModalSegue" id="fWk-kd-wy2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avj-KL-cBV">
+                                <rect key="frame" x="172" y="494" width="130" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="Cd8-ld-S3R"/>
+                                    <constraint firstAttribute="height" constant="36" id="oSp-t1-vY4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login" backgroundImage="button-background.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="n53-Ur-QMq" kind="custom" customClass="BlurryModalSegue" id="gSd-ur-Aqn"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-Zr-fZE">
+                                <rect key="frame" x="141" y="453" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didClickOnPageControl:" destination="Jfu-Dr-Rpp" eventType="valueChanged" id="Fkd-3z-Bte"/>
+                                </connections>
+                            </pageControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsk-Oy-wL0">
+                                <rect key="frame" x="54" y="117" width="211" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="0eg-it-2N9"/>
+                                    <constraint firstAttribute="height" constant="49" id="mOX-uO-cC2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="4qq-kb-WoR"/>
+                            <constraint firstAttribute="trailing" secondItem="Avj-KL-cBV" secondAttribute="trailing" constant="18" id="5Jy-4b-dMb"/>
+                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="6CW-Xe-UFm"/>
+                            <constraint firstAttribute="bottom" secondItem="gg1-g3-M4j" secondAttribute="bottom" constant="18" id="9pG-di-i88"/>
+                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="Cia-Fo-QVi"/>
+                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="D4z-uR-Gq1"/>
+                            <constraint firstItem="gg1-g3-M4j" firstAttribute="baseline" secondItem="Avj-KL-cBV" secondAttribute="baseline" id="FGE-Yj-J1W"/>
+                            <constraint firstAttribute="bottom" secondItem="SXo-p2-9Ow" secondAttribute="bottom" id="Gzt-WC-l4X"/>
+                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="O37-fh-chv"/>
+                            <constraint firstItem="W4k-uw-NIW" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="P2S-h2-Xr8"/>
+                            <constraint firstAttribute="bottom" secondItem="lSg-Zr-fZE" secondAttribute="bottom" constant="59" id="Xvt-Tw-AkM"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gg1-g3-M4j" secondAttribute="bottom" constant="18" id="YnD-Ks-YRc"/>
+                            <constraint firstItem="gg1-g3-M4j" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" constant="20" id="bXj-eR-stZ"/>
+                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="by8-z1-5EN"/>
+                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="eK4-ss-XXc"/>
+                            <constraint firstAttribute="centerX" secondItem="lSg-Zr-fZE" secondAttribute="centerX" id="i2l-ID-ywv"/>
+                            <constraint firstItem="UiH-kk-ZNJ" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="ikx-2L-E7y"/>
+                            <constraint firstAttribute="bottom" secondItem="Avj-KL-cBV" secondAttribute="bottom" constant="18" id="mP8-wT-ptY"/>
+                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="nEH-HL-Hfd"/>
+                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="ngD-EH-Ur4"/>
+                            <constraint firstItem="W4k-uw-NIW" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="oXh-u0-oQZ"/>
+                            <constraint firstAttribute="centerX" secondItem="zsk-Oy-wL0" secondAttribute="centerX" id="p26-17-oi7"/>
+                            <constraint firstItem="W4k-uw-NIW" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="syV-SL-o4q"/>
+                            <constraint firstItem="W4k-uw-NIW" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="uPW-nY-OEC"/>
+                            <constraint firstItem="UiH-kk-ZNJ" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="un1-dO-7nl"/>
+                            <constraint firstAttribute="trailing" secondItem="SXo-p2-9Ow" secondAttribute="trailing" id="wWl-PS-f5J"/>
+                            <constraint firstItem="zsk-Oy-wL0" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" constant="117" id="wqq-IR-zh7"/>
+                        </constraints>
+                        <simulatedMetricsInferredSentinel key="simulatedStatusBarMetrics"/>
+                        <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="_backLayerView" destination="OTB-Uf-EAG" id="ViH-CO-11p"/>
+                        <outlet property="_frontLayerView" destination="W4k-uw-NIW" id="1U3-Kq-eBq"/>
+                        <outlet property="_pageControl" destination="lSg-Zr-fZE" id="a2s-UD-gsT"/>
+                        <outlet property="_scrollView" destination="SXo-p2-9Ow" id="EKw-kG-58b"/>
+                        <segue destination="P9E-Fs-eAH" kind="modal" identifier="AlreadyLoggedIn" id="QJM-kA-wGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyX-uX-L88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-699" y="-168"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="3ss-vI-8ac">
             <objects>
@@ -64,7 +202,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="kdr-R4-bDv" kind="modal" id="Btr-U3-OVT"/>
+                                            <segue destination="Jfu-Dr-Rpp" kind="modal" id="baD-Ev-zdC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hl2-ch-Rg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="409"/>
+            <point key="canvasLocation" x="-83" y="336"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RrX-eE-9JF">
@@ -138,7 +276,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="kdr-R4-bDv" kind="modal" id="zjv-Ke-vGo"/>
+                                            <segue destination="Jfu-Dr-Rpp" kind="modal" id="MOR-1u-bp4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -204,7 +342,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Logout:" destination="TZm-LT-cwh" eventType="touchUpInside" id="U58-mv-m1Q"/>
-                                    <segue destination="kdr-R4-bDv" kind="modal" identifier="LogoutUser" id="GZQ-10-enl"/>
+                                    <segue destination="Jfu-Dr-Rpp" kind="modal" identifier="LogoutUser" id="YlQ-mk-aS0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -638,56 +776,6 @@
             </objects>
             <point key="canvasLocation" x="1121" y="289"/>
         </scene>
-        <!--Welcome View Controller-->
-        <scene sceneID="NIG-7w-9Ea">
-            <objects>
-                <viewController id="kdr-R4-bDv" customClass="WelcomeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EVP-f1-z9C"/>
-                        <viewControllerLayoutGuide type="bottom" id="rzI-cJ-XHe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cbn-7o-DOL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BuddyUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-Yj-bpt">
-                                <rect key="frame" x="124" y="105" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTJ-3w-lJp">
-                                <rect key="frame" x="141" y="216" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="n53-Ur-QMq" kind="custom" customClass="BlurryModalSegue" id="jcP-De-sP7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEn-fR-tN0">
-                                <rect key="frame" x="135" y="313" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SignUp">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3h3-2k-OJd" kind="custom" customClass="BlurryModalSegue" id="arS-57-PBs"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.68742008740000005" green="1" blue="0.59215773230000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <segue destination="P9E-Fs-eAH" kind="modal" identifier="AlreadyLoggedIn" id="jLo-4z-Vu8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0AY-HW-vRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-474" y="-72"/>
-        </scene>
         <!--Navigation Controller - Home-->
         <scene sceneID="lhP-jF-JBb">
             <objects>
@@ -726,13 +814,17 @@
             <point key="canvasLocation" x="1527" y="-1088"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background-gradient.png" width="34" height="28"/>
+        <image name="button-background.png" width="34" height="28"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GZQ-10-enl"/>
-        <segue reference="yqf-sy-Qkj"/>
+        <segue reference="MOR-1u-bp4"/>
+        <segue reference="QJM-kA-wGC"/>
     </inferredMetricsTieBreakers>
 </document>

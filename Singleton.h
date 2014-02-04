@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ICETutorialPage.h"
 
 @interface Singleton : NSObject
 @property (strong, nonatomic) NSString *textString;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) NSString *timeString;
 @property (strong, nonatomic) UIImage *avatar;
 @property (strong, nonatomic) NSString *addName;
+@property (strong, nonatomic) NSArray *pageArray;
 
 +(Singleton *)globalData;
 

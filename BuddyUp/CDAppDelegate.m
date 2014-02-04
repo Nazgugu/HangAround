@@ -8,6 +8,8 @@
 
 #import "CDAppDelegate.h"
 #import <Parse/Parse.h>
+#import "ICETutorialController.h"
+#import "Singleton.h"
 
 @implementation CDAppDelegate
 
@@ -18,6 +20,26 @@
                   clientKey:@"Q2FroVo6ZZy7SBli9zu4Ecbu8lOGyDo07vYjgyiS"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //Enabling keyboard manager(Use this line to enable managing distance between keyboard & textField/textView).
+    // Init the pages texts, and pictures.
+    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 1"
+                                                            description:@"Champs-Elysées by night"
+                                                            pictureName:@"tutorial_background_00@2x.jpg"];
+    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 2"
+                                                            description:@"The Eiffel Tower with\n cloudy weather"
+                                                            pictureName:@"tutorial_background_01@2x.jpg"];
+    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 3"
+                                                            description:@"An other famous street of Paris"
+                                                            pictureName:@"tutorial_background_02@2x.jpg"];
+    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 4"
+                                                            description:@"The Eiffel Tower with a better weather"
+                                                            pictureName:@"tutorial_background_03@2x.jpg"];
+    ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 5"
+                                                            description:@"The Louvre's Museum Pyramide"
+                                                            pictureName:@"tutorial_background_04@2x.jpg"];
+    NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4,layer5];
+    [Singleton globalData].pageArray = tutorialLayers;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

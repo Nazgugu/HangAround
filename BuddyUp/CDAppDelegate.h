@@ -34,4 +34,5 @@ static NSString * const kPAWPostCreatedNotification = @"kPAWPostCreatedNotificat
 @interface CDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @end
