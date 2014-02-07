@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jfu-Dr-Rpp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5051" systemVersion="13C48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jfu-Dr-Rpp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -9,57 +9,38 @@
             <objects>
                 <viewController id="Jfu-Dr-Rpp" customClass="ICETutorialController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DCL-2v-KgU"/>
-                        <viewControllerLayoutGuide type="bottom" id="QG2-XW-jhN"/>
+                        <viewControllerLayoutGuide type="top" id="qwY-xQ-kuK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ge0-GP-bcI"/>
                     </layoutGuides>
-                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TeX-E8-dCT">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0tN-wy-yNL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-uw-NIW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAF-7I-Pjv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTB-Uf-EAG">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ6-Vl-Nf7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="background-gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="UiH-kk-ZNJ">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="background-gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="G2E-X5-415">
                                 <rect key="frame" x="0.0" y="348" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXo-p2-9Ow">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC6-qN-gBo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Jfu-Dr-Rpp" id="pGs-Wh-3IL"/>
+                                    <outlet property="delegate" destination="Jfu-Dr-Rpp" id="0EP-0D-Z3y"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg1-g3-M4j" customClass="SignUp">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-Zn-4eZ">
                                 <rect key="frame" x="20" y="494" width="130" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Ami-dc-0hv"/>
-                                    <constraint firstAttribute="width" constant="130" id="uC6-SP-5as"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SignUp" backgroundImage="button-background.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3h3-2k-OJd" kind="custom" customClass="BlurryModalSegue" id="fWk-kd-wy2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avj-KL-cBV">
-                                <rect key="frame" x="172" y="494" width="130" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="Cd8-ld-S3R"/>
-                                    <constraint firstAttribute="height" constant="36" id="oSp-t1-vY4"/>
+                                    <constraint firstAttribute="height" constant="36" id="9Af-Pn-sXh"/>
+                                    <constraint firstAttribute="width" constant="130" id="d2b-4L-Lab"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Login" backgroundImage="button-background.png">
@@ -70,22 +51,41 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="n53-Ur-QMq" kind="custom" customClass="BlurryModalSegue" id="gSd-ur-Aqn"/>
+                                    <segue destination="n53-Ur-QMq" kind="custom" customClass="BlurryModalSegue" id="sTl-yK-WdR"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-Zr-fZE">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mY-Fw-jFv">
+                                <rect key="frame" x="172" y="494" width="130" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="W3x-4M-AjI"/>
+                                    <constraint firstAttribute="height" constant="36" id="p0Y-hc-G5k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SignUp" backgroundImage="button-background.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3h3-2k-OJd" kind="custom" customClass="BlurryModalSegue" id="pom-wX-tMl"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ysn-oH-EiQ">
                                 <rect key="frame" x="141" y="453" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="didClickOnPageControl:" destination="Jfu-Dr-Rpp" eventType="valueChanged" id="Fkd-3z-Bte"/>
+                                    <action selector="didClickOnPageControl:" destination="Jfu-Dr-Rpp" eventType="valueChanged" id="sCq-lt-ujF"/>
                                 </connections>
                             </pageControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsk-Oy-wL0">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubp-vN-bh1">
                                 <rect key="frame" x="54" y="117" width="211" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="211" id="0eg-it-2N9"/>
-                                    <constraint firstAttribute="height" constant="49" id="mOX-uO-cC2"/>
+                                    <constraint firstAttribute="width" constant="211" id="BCJ-wL-D70"/>
+                                    <constraint firstAttribute="height" constant="49" id="vkm-3V-3gE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,33 +94,33 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="4qq-kb-WoR"/>
-                            <constraint firstAttribute="trailing" secondItem="Avj-KL-cBV" secondAttribute="trailing" constant="18" id="5Jy-4b-dMb"/>
-                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="6CW-Xe-UFm"/>
-                            <constraint firstAttribute="bottom" secondItem="gg1-g3-M4j" secondAttribute="bottom" constant="18" id="9pG-di-i88"/>
-                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="Cia-Fo-QVi"/>
-                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="D4z-uR-Gq1"/>
-                            <constraint firstItem="gg1-g3-M4j" firstAttribute="baseline" secondItem="Avj-KL-cBV" secondAttribute="baseline" id="FGE-Yj-J1W"/>
-                            <constraint firstAttribute="bottom" secondItem="SXo-p2-9Ow" secondAttribute="bottom" id="Gzt-WC-l4X"/>
-                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="O37-fh-chv"/>
-                            <constraint firstItem="W4k-uw-NIW" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="P2S-h2-Xr8"/>
-                            <constraint firstAttribute="bottom" secondItem="lSg-Zr-fZE" secondAttribute="bottom" constant="59" id="Xvt-Tw-AkM"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gg1-g3-M4j" secondAttribute="bottom" constant="18" id="YnD-Ks-YRc"/>
-                            <constraint firstItem="gg1-g3-M4j" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" constant="20" id="bXj-eR-stZ"/>
-                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="by8-z1-5EN"/>
-                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="eK4-ss-XXc"/>
-                            <constraint firstAttribute="centerX" secondItem="lSg-Zr-fZE" secondAttribute="centerX" id="i2l-ID-ywv"/>
-                            <constraint firstItem="UiH-kk-ZNJ" firstAttribute="bottom" secondItem="TeX-E8-dCT" secondAttribute="bottom" id="ikx-2L-E7y"/>
-                            <constraint firstAttribute="bottom" secondItem="Avj-KL-cBV" secondAttribute="bottom" constant="18" id="mP8-wT-ptY"/>
-                            <constraint firstItem="SXo-p2-9Ow" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="nEH-HL-Hfd"/>
-                            <constraint firstItem="OTB-Uf-EAG" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="ngD-EH-Ur4"/>
-                            <constraint firstItem="W4k-uw-NIW" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="oXh-u0-oQZ"/>
-                            <constraint firstAttribute="centerX" secondItem="zsk-Oy-wL0" secondAttribute="centerX" id="p26-17-oi7"/>
-                            <constraint firstItem="W4k-uw-NIW" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" id="syV-SL-o4q"/>
-                            <constraint firstItem="W4k-uw-NIW" firstAttribute="trailing" secondItem="TeX-E8-dCT" secondAttribute="trailing" id="uPW-nY-OEC"/>
-                            <constraint firstItem="UiH-kk-ZNJ" firstAttribute="leading" secondItem="TeX-E8-dCT" secondAttribute="leading" id="un1-dO-7nl"/>
-                            <constraint firstAttribute="trailing" secondItem="SXo-p2-9Ow" secondAttribute="trailing" id="wWl-PS-f5J"/>
-                            <constraint firstItem="zsk-Oy-wL0" firstAttribute="top" secondItem="TeX-E8-dCT" secondAttribute="top" constant="117" id="wqq-IR-zh7"/>
+                            <constraint firstItem="WQ6-Vl-Nf7" firstAttribute="trailing" secondItem="0tN-wy-yNL" secondAttribute="trailing" id="1FO-79-iH8"/>
+                            <constraint firstItem="BC6-qN-gBo" firstAttribute="trailing" secondItem="0tN-wy-yNL" secondAttribute="trailing" id="2UY-E9-xGW"/>
+                            <constraint firstItem="WQ6-Vl-Nf7" firstAttribute="top" secondItem="0tN-wy-yNL" secondAttribute="top" id="5Hc-oA-cLe"/>
+                            <constraint firstItem="pwL-Zn-4eZ" firstAttribute="baseline" secondItem="2mY-Fw-jFv" secondAttribute="baseline" id="5bU-6J-DnD"/>
+                            <constraint firstItem="BC6-qN-gBo" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" id="8eF-lb-yEO"/>
+                            <constraint firstItem="pwL-Zn-4eZ" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" constant="20" id="9c5-2A-prb"/>
+                            <constraint firstItem="wAF-7I-Pjv" firstAttribute="trailing" secondItem="0tN-wy-yNL" secondAttribute="trailing" id="9ly-bP-RGz"/>
+                            <constraint firstItem="WQ6-Vl-Nf7" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" id="CUd-6d-99m"/>
+                            <constraint firstItem="BC6-qN-gBo" firstAttribute="top" secondItem="0tN-wy-yNL" secondAttribute="top" id="I8Z-g4-hVt"/>
+                            <constraint firstItem="G2E-X5-415" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" id="IVR-MX-hwc"/>
+                            <constraint firstAttribute="bottom" secondItem="BC6-qN-gBo" secondAttribute="bottom" id="Jqv-Sc-XaA"/>
+                            <constraint firstAttribute="bottom" secondItem="pwL-Zn-4eZ" secondAttribute="bottom" constant="18" id="RjV-4P-NCo"/>
+                            <constraint firstAttribute="trailing" secondItem="2mY-Fw-jFv" secondAttribute="trailing" constant="18" id="SWz-Qi-e6g"/>
+                            <constraint firstItem="wAF-7I-Pjv" firstAttribute="bottom" secondItem="0tN-wy-yNL" secondAttribute="bottom" id="TEH-cd-Mwi"/>
+                            <constraint firstItem="wAF-7I-Pjv" firstAttribute="top" secondItem="0tN-wy-yNL" secondAttribute="top" id="TWE-SX-8Oq"/>
+                            <constraint firstItem="WQ6-Vl-Nf7" firstAttribute="bottom" secondItem="0tN-wy-yNL" secondAttribute="bottom" id="Tb9-m3-2Aj"/>
+                            <constraint firstItem="BC6-qN-gBo" firstAttribute="top" secondItem="0tN-wy-yNL" secondAttribute="top" id="bi9-zN-OxT"/>
+                            <constraint firstAttribute="centerX" secondItem="ubp-vN-bh1" secondAttribute="centerX" id="dag-F4-4R7"/>
+                            <constraint firstItem="ubp-vN-bh1" firstAttribute="top" secondItem="0tN-wy-yNL" secondAttribute="top" constant="117" id="dfa-Bq-Oq6"/>
+                            <constraint firstItem="G2E-X5-415" firstAttribute="bottom" secondItem="0tN-wy-yNL" secondAttribute="bottom" id="eBi-Ua-bxB"/>
+                            <constraint firstAttribute="trailing" secondItem="BC6-qN-gBo" secondAttribute="trailing" id="k0c-Jf-XyD"/>
+                            <constraint firstAttribute="bottom" secondItem="2mY-Fw-jFv" secondAttribute="bottom" constant="18" id="ljB-ja-EL7"/>
+                            <constraint firstItem="wAF-7I-Pjv" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" id="oRu-22-ok3"/>
+                            <constraint firstAttribute="bottom" secondItem="ysn-oH-EiQ" secondAttribute="bottom" constant="59" id="rjw-aq-xLz"/>
+                            <constraint firstItem="BC6-qN-gBo" firstAttribute="leading" secondItem="0tN-wy-yNL" secondAttribute="leading" id="rkh-V7-lMd"/>
+                            <constraint firstAttribute="centerX" secondItem="ysn-oH-EiQ" secondAttribute="centerX" id="wVf-Jy-LO9"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pwL-Zn-4eZ" secondAttribute="bottom" constant="18" id="xff-Qj-iem"/>
                         </constraints>
                         <simulatedMetricsInferredSentinel key="simulatedStatusBarMetrics"/>
                         <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -131,16 +131,17 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="_backLayerView" destination="OTB-Uf-EAG" id="ViH-CO-11p"/>
-                        <outlet property="_frontLayerView" destination="W4k-uw-NIW" id="1U3-Kq-eBq"/>
-                        <outlet property="_pageControl" destination="lSg-Zr-fZE" id="a2s-UD-gsT"/>
-                        <outlet property="_scrollView" destination="SXo-p2-9Ow" id="EKw-kG-58b"/>
+                        <outlet property="_backLayerView" destination="WQ6-Vl-Nf7" id="nXB-JI-QQP"/>
+                        <outlet property="_frontLayerView" destination="wAF-7I-Pjv" id="iZr-zQ-tz6"/>
+                        <outlet property="_overlayTitle" destination="ubp-vN-bh1" id="UBQ-OC-gfl"/>
+                        <outlet property="_pageControl" destination="ysn-oH-EiQ" id="Vtv-Bh-9Ze"/>
+                        <outlet property="_scrollView" destination="BC6-qN-gBo" id="yCp-Rk-XOT"/>
                         <segue destination="P9E-Fs-eAH" kind="modal" identifier="AlreadyLoggedIn" id="QJM-kA-wGC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyX-uX-L88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-699" y="-168"/>
+            <point key="canvasLocation" x="-577" y="-100"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="3ss-vI-8ac">
@@ -223,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hl2-ch-Rg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83" y="336"/>
+            <point key="canvasLocation" x="-204" y="166"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RrX-eE-9JF">
@@ -296,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18L-k9-rZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="-575"/>
+            <point key="canvasLocation" x="-204" y="-553"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="egy-pw-Z2c">
@@ -693,7 +694,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emX-Jm-abr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="-72"/>
+            <point key="canvasLocation" x="194" y="-178"/>
         </scene>
         <!--View Controller - More-->
         <scene sceneID="Mhx-Xb-TLJ">
@@ -824,7 +825,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MOR-1u-bp4"/>
-        <segue reference="QJM-kA-wGC"/>
+        <segue reference="baD-Ev-zdC"/>
+        <segue reference="i6b-sr-h6y"/>
     </inferredMetricsTieBreakers>
 </document>

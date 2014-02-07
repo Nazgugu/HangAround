@@ -59,6 +59,10 @@
 {
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor blackColor]];
+    _autoScrollEnabled = YES;
+    _autoScrollLooping = YES;
+    _autoScrollDurationOnPage = TUTORIAL_DEFAULT_DURATION_ON_PAGE;
+
     
     ICETutorialLabelStyle *subStyle = [[ICETutorialLabelStyle alloc] init];
     [subStyle setFont:TUTORIAL_SUB_TITLE_FONT];
@@ -73,6 +77,12 @@
     [descStyle setOffset:TUTORIAL_DESC_OFFSET];
     
     
+    
+    [self setCommonPageSubTitleStyle:subStyle];
+    [self setCommonPageDescriptionStyle:descStyle];
+    
+    [self setPages:[Singleton globalData].pageArray];
+
     
     [self setCommonPageSubTitleStyle:subStyle];
     [self setCommonPageDescriptionStyle:descStyle];
@@ -98,6 +108,7 @@
 
     // Run the auto-scrolling.
     [self autoScrollToNextPage];
+    [self startScrolling];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -109,24 +120,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    ICETutorialLabelStyle *subStyle = [[ICETutorialLabelStyle alloc] init];
-    [subStyle setFont:TUTORIAL_SUB_TITLE_FONT];
-    [subStyle setTextColor:TUTORIAL_LABEL_TEXT_COLOR];
-    [subStyle setLinesNumber:TUTORIAL_SUB_TITLE_LINES_NUMBER];
-    [subStyle setOffset:TUTORIAL_SUB_TITLE_OFFSET];
-    
-    ICETutorialLabelStyle *descStyle = [[ICETutorialLabelStyle alloc] init];
-    [descStyle setFont:TUTORIAL_DESC_FONT];
-    [descStyle setTextColor:TUTORIAL_LABEL_TEXT_COLOR];
-    [descStyle setLinesNumber:TUTORIAL_DESC_LINES_NUMBER];
-    [descStyle setOffset:TUTORIAL_DESC_OFFSET];
-    
-    
-    
-    [self setCommonPageSubTitleStyle:subStyle];
-    [self setCommonPageDescriptionStyle:descStyle];
-    
-    [self setPages:[Singleton globalData].pageArray];
 }
 
 - (void)checkStatus
